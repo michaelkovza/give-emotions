@@ -40,10 +40,6 @@
       }
         .gallery__button {
           background: var(--button-active-color);
-
-          &:before {
-            content: 'просмотр';
-          }
         }
     }
   }
@@ -51,6 +47,7 @@
   &__image-wrapper {
     box-shadow: rgba(0, 0, 0, 0.4) 0 0 0 inset;
     transition: box-shadow 0.3s ease-in;
+
   }
 
   &__image {
@@ -83,14 +80,6 @@
     text-align: left;
     padding: 0 37px;
     transition: background 0.3s ease-in;
-
-    &:before {
-      content: 'выбрать';
-      display: block;
-      position: absolute;
-      top: 16px;
-      transition: content 0.3s ease-in;
-    }
 
     &:after {
       content: '';
