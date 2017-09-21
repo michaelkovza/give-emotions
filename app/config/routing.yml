@@ -1,3 +1,7 @@
+in_white_box:
+    resource: "@InWhiteBoxBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

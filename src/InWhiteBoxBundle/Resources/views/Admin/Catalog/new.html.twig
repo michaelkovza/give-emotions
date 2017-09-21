@@ -1,0 +1,68 @@
+{% extends 'KamBundle:Administrator:admin.html.twig' %}
+{% block title %}Создание новости{% endblock %}
+{% block additionalstyles %}
+
+{% endblock %}
+{% block addheadscript %}
+    <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <h1>Новая новость</h1>
+    {{ form_start(form) }}
+    <div class="form-group row">
+        {{ form_row(form.date) }}
+    </div>
+    <div class="form-group row">
+        {{ form_row(form.preview,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group row">
+        {{ form_row(form.text,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group row">
+        <div class="col-lg-6">
+            <div class="col-md-3">
+                <div class="document_img">
+                    <img id="image" class="img-thumbnail" src="http://placehold.it/500x300" alt=""/>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                {% if form_errors(form.picture) %}
+                    <label>{{ form_errors(form.picture) }}</label>
+                {% endif %}
+                <div class="form-group" id="picture">
+                    <label class="btn btn-default btn-file btn-lg">Выберите файл
+                        {{ form_widget(form.picture, {'attr':{'class':'hidden'}}) }}
+                    </label>
+                </div>
+                <input class="btn btn-default" type="submit" value="Создать"/>
+                <a class="btn btn-default" href="{{ path('news_index') }}">К списку</a>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ asset('js/admin/jquery.js') }}"></script>
+    <script src="{{ asset('js/admin/bootstrap.min.js') }}"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#kambundle_news_picture").change(function () {
+            readURL(this);
+        });
+    </script>
+{% endblock %}
+{% block additionalscripts %}
+    <script type="text/javascript">
+        window.onload = function () {
+            CKEDITOR.replace('kambundle_news_text');
+        };
+    </script>
+{% endblock %}

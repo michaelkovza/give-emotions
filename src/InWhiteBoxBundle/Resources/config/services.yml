@@ -1,0 +1,4 @@
+services:
+#    in_white_box.example:
+#        class: InWhiteBoxBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

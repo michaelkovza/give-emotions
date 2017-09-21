@@ -20,7 +20,7 @@ const webpackConfig = {
         index: [ path.join(__dirname, 'src')]
     },
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, '/../src'),
         publicPath: IS_PRODUCTION ? '' : '/',
         filename: '[name].js'
     },

@@ -1,0 +1,49 @@
+{% extends 'KamBundle:Administrator:admin.html.twig' %}
+{% block title %}Редактирование элемента каталога{% endblock %}
+{% block additionalstyles %}
+
+{% endblock %}
+{% block addheadscript %}
+    <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <h1>Редактирование новости</h1>
+
+    {{ form_start(edit_form,{'attr':{'novalidate':'novalidate'}}) }}
+    <div class="form-group">
+        {{ form_row(edit_form.date) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(edit_form.preview,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(edit_form.text,{'attr':{'class':'form-control'}}) }}
+    </div>
+    {% if form_errors(edit_form.picture) %}
+        <label>{{ form_errors(edit_form.picture) }}</label>
+    {% endif %}
+    <div class="form-group">
+        <div>
+            <div class="document_img"><img src="{{ asset(news.picture) }}" alt=""></div>
+        </div>
+        <label class="btn btn-default btn-file btn-lg">Изменить
+            {{ form_widget(edit_form.picture, {'attr':{'class':'hidden'}}) }}
+        </label>
+    </div>
+    <input class="btn btn-default" type="submit" value="Сохранить изменения"/>
+    <div class="mt-1">
+        <ul>
+            <li>
+                <a href="{{ path('catalog_index') }}">К каталогу </a>
+            </li>
+        </ul>
+    </div>
+    {{ form_end(edit_form) }}
+{% endblock %}
+{% block additionalscripts %}
+    <script type="text/javascript">
+        window.onload = function () {
+            CKEDITOR.replace('inwhitebox_text');
+        };
+    </script>
+{% endblock %}
