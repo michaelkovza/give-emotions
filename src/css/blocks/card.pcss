@@ -21,19 +21,27 @@
 
   &__large-image {
     width: 100%;
+    height: 467px;
     display: block;
   }
 
   &__small-image {
     width: 100px;
     display: block;
-    margin: 0 10px;
+    margin: 0 8px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    transition: border 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid var(--button-active-color);
+    }
   }
 
   &__slider {
-    padding-top: 20px;
     width: 577px;
-    margin: 0 auto;
+    margin: 20px auto 0 auto;
   }
 
   &__close-button {
