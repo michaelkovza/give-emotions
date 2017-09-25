@@ -1,7 +1,7 @@
 {
-  "name": "hrc-stub-raw",
+  "name": "stub",
   "version": "0.1.0",
-  "description": "simple project stub for fast app initialization. Pug(former jade) template engine",
+  "description": "simple stub for home projects",
   "main": "index.js",
   "scripts": {
     "start": "node start.js",
@@ -11,10 +11,6 @@
     "lint-css": "stylelint ./src/**/*.pcss",
     "build": "cross-env NODE_ENV=production node build.js",
     "sprite": "svg-sprite-generate -d ./src/images/svg-sprite -o ./src/images/svg-sprite.svg"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.htc-cs.com/lbp/hrc-stub.git"
   },
   "author": "lbp",
   "license": "ISC",

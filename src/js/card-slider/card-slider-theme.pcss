@@ -1,0 +1,48 @@
+.card-slider {
+  /* Arrows */
+  & .slick-prev {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 15px;
+    height: 25px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    background: url('../../images/card/black-arrow.png') center no-repeat;
+    left: -25px;
+    z-index: 5;
+    color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  & .slick-next {
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 15px;
+    height: 25px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%) rotate(180deg);
+    cursor: pointer;
+    background: url('../../images/card/black-arrow.png') center no-repeat;
+    right: -25px;
+    z-index: 5;
+    color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
