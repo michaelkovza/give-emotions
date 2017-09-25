@@ -1,7 +1,7 @@
 {
-  "name": "hrc-stub-raw",
+  "name": "stub",
   "version": "0.1.0",
-  "description": "simple project stub for fast app initialization. Pug(former jade) template engine",
+  "description": "simple stub for home projects",
   "main": "index.js",
   "scripts": {
     "start": "node start.js",
@@ -11,10 +11,6 @@
     "lint-css": "stylelint ./src/**/*.pcss",
     "build": "cross-env NODE_ENV=production node build.js",
     "sprite": "svg-sprite-generate -d ./src/images/svg-sprite -o ./src/images/svg-sprite.svg"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.htc-cs.com/lbp/hrc-stub.git"
   },
   "author": "lbp",
   "license": "ISC",
@@ -32,7 +28,7 @@
     "babel-runtime": "^6.20.0",
     "compression-webpack-plugin": "^0.3.2",
     "copy-webpack-plugin": "^4.0.1",
-    "css-loader": "^0.26.1",
+    "css-loader": "^0.26.4",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -72,7 +68,7 @@
     "path": "^0.12.7",
     "resolve-url": "^0.2.1",
     "rimraf": "^2.5.4",
-    "slick-carousel": "^1.6.0",
+    "slick-carousel": "^1.7.1",
     "svg-sprite-generator": "0.0.7",
     "svg-sprite-loader": "^0.3.0"
   }

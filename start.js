@@ -31,5 +31,5 @@ const frontendServer = new WebpackDevServer(frontendCompiler, {
 });
 
 frontendServer.listen(frontendServerPort, frontendServerHost, () => {
-    console.log(`Frontend server running at http://${frontendServerHost}:${frontendServerPort}...`);
+    console.log(`http://${frontendServerHost}:${frontendServerPort}...`);
 });
