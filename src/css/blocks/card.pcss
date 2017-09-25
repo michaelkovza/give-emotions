@@ -1,4 +1,5 @@
 .card {
+  background: var(--color-card-background);
 
   &__list {
     padding: 40px 38px;
@@ -12,6 +13,10 @@
 
     &--width {
       width: 640px;
+    }
+
+    &--margin-right {
+      margin-right: 54px;
     }
 
     &--relative {
@@ -63,21 +68,38 @@
 
   &__title {
     text-transform: uppercase;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
+    font-size: 25px;
   }
 
   &__subtitle {
     text-transform: uppercase;
-    padding-bottom: 55px;
+    padding-bottom: 35px;
+    font-size: 25px;
+    color: var(--color-accent)
   }
 
   &__content {
-    padding-bottom: 35px;
+    padding-bottom: 20px;
     width: 427px;
+    font-size: 20px;
+    color: var(--color-accent);
   }
 
   &__price {
     text-transform: uppercase;
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 18px;
+  }
+
+  &__currency {
+    font-size: 21px;
+  }
+
+  &__offer {
+    font-size: 20px;
+    padding-bottom: 5px;
   }
 
   &__button {
@@ -99,7 +121,7 @@
       position: absolute;
       top: 16px;
       right: 19px;
-      background: url('../../images/gallery/button-arrow.svg') no-repeat center;
+      background: url('../../images/gallery/button-arrow.png') no-repeat center;
     }
   }
 }

@@ -8,6 +8,8 @@ import initLampSlick from './js/lamp-slider/lamp-slider';
 import initCardSlick from './js/card-slider/card-slider';
 
 import getCurrentImage from './js/getCurrImage';
+import initModalOverlay from './js/modal-overlay';
+
 
 window.addEventListener('load', () => {
     const LampSliderSelector = $('.lamp-slider');
@@ -22,5 +24,14 @@ window.addEventListener('load', () => {
     };
 
     getCurrentImage(getCurrentImageOptions);
+
+    const initModalOverlayOptions = {
+        modalOverlaySelector: document.getElementsByClassName('modal-overlay')[0],
+        modalOverlayClosedClass: 'modal-overlay--closed',
+        closeButtonSelector: document.getElementsByClassName('modal-overlay__close-button')[0],
+        previewCardItemsSelector: document.getElementsByClassName('gallery__item')
+    };
+
+    initModalOverlay(initModalOverlayOptions);
 });
 

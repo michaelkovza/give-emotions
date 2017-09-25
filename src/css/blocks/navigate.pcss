@@ -8,4 +8,16 @@
     width: 728px;
     margin: 0 auto;
   }
+
+  &__link {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease-in, color 0.3s ease-in;
+    font-size: 20px;
+
+    &:hover {
+      color: var(--color-accent);
+      border-bottom: 1px solid var(--color-accent);
+    }
+  }
 }
