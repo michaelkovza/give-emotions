@@ -1,4 +1,4 @@
 services:
-#    in_white_box.example:
-#        class: InWhiteBoxBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    in_white_box.user_provider:
+        class: InWhiteBoxBundle\InWhiteBoxUserProvider
+        arguments: ['@doctrine.orm.entity_manager']

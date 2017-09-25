@@ -1,0 +1,22 @@
+InWhiteBoxBundle\Entity\WebUser:
+    type: entity
+    table: null
+    repositoryClass: InWhiteBoxBundle\Repository\WebUserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+            length: 255
+            unique: true
+        password:
+            type: string
+            length: 255
+        role:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,22 @@
+InWhiteBoxBundle\Entity\Catalog:
+    type: entity
+    oneToMany:
+        items:
+            targetEntity: InWhiteBoxBundle\Entity\CatalogItem
+            mappedBy: catalog
+    table: null
+    repositoryClass: InWhiteBoxBundle\Repository\CatalogRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }
