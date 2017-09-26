@@ -20,27 +20,32 @@ class Catalog
     /**
      * @var string
      */
+    private $picture;
+
+    /**
+     * @var float
+     */
+    private $price;
+
+    /**
+     * @var string
+     */
     private $description;
 
     /**
-     * @var CatalogItem []
+     * @return string
      */
-    private $items;
-
-    /**
-     * @return mixed
-     */
-    public function getItems()
+    public function getDescription()
     {
-        return $this->items;
+        return $this->description;
     }
 
     /**
-     * @param CatalogItem[] $items
+     * @param string $description
      */
-    public function setItems(array $items)
+    public function setDescription($description)
     {
-        $this->items = $items;
+        $this->description = $description;
     }
 
     /**
@@ -78,27 +83,51 @@ class Catalog
     }
 
     /**
-     * Set description
+     * Set picture
      *
-     * @param string $description
+     * @param string $picture
      *
      * @return Catalog
      */
-    public function setDescription($description)
+    public function setPicture($picture)
     {
-        $this->description = $description;
+        $this->picture = $picture;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get picture
      *
      * @return string
      */
-    public function getDescription()
+    public function getPicture()
     {
-        return $this->description;
+        return $this->picture;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return Catalog
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
 

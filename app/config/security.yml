@@ -22,9 +22,7 @@ security:
         main:
             anonymous: ~
     encoders:
-        InWhiteBoxBundle\Entity\WebUser:
-            algorithm: bcrypt
-            cost: 15
+        InWhiteBoxBundle\Entity\WebUser: plaintext
     access_control:
             - { path: ^/admin/auth, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin, roles: ROLE_ADMIN }

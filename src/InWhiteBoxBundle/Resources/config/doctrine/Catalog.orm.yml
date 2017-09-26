@@ -1,9 +1,5 @@
 InWhiteBoxBundle\Entity\Catalog:
     type: entity
-    oneToMany:
-        items:
-            targetEntity: InWhiteBoxBundle\Entity\CatalogItem
-            mappedBy: catalog
     table: null
     repositoryClass: InWhiteBoxBundle\Repository\CatalogRepository
     id:
@@ -16,7 +12,12 @@ InWhiteBoxBundle\Entity\Catalog:
         name:
             type: string
             length: 255
+        picture:
+            type: string
+            length: 255
+        price:
+            type: float
         description:
-            type: text
-            nullable: true
+            type: string
+
     lifecycleCallbacks: {  }
