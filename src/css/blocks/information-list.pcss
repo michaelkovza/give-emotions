@@ -1,0 +1,90 @@
+.information-list {
+  /*#535277;*/
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  &__item {
+    display: inline-block;
+    width: 500px;
+    height: 370px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s ease-in;
+    margin-bottom: 60px;
+
+    &:hover {
+      transform: scale(1.05);
+
+      .information-list__button {
+        background: var(--button-active-color);
+
+      }
+    }
+
+    &--lamp {
+      background: var(--color-information-lamp);
+    }
+
+    &--contacts {
+      background: var(--color-information-contacts);
+    }
+
+    &--comments {
+      background: var(--color-information-comments);
+    }
+
+    &--gallery {
+      background: var(--color-information-gallery)
+    }
+  }
+
+  &__image-wrapper {
+    width: 150px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 30px 0 15px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    padding-bottom: 15px;
+    font-size: 20px;
+    color: var(--color-information-text);
+  }
+  
+  &__button {
+    width: 290px;
+    height: 52px;
+    text-align: left;
+    padding: 0 15px;
+    color: var(--color-information-text);
+    background: var(--button-color);
+    position: relative;
+    transition: background 0.3s ease-in;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(-50%, -50%);
+      background: url('../../images/information/alert.png') no-repeat center;
+    }
+
+    &:hover {
+      background: var(--button-active-color);
+    }
+  }
+
+
+}
