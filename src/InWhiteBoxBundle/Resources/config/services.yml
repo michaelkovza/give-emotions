@@ -2,3 +2,14 @@ services:
     in_white_box.user_provider:
         class: InWhiteBoxBundle\InWhiteBoxUserProvider
         arguments: ['@doctrine.orm.entity_manager']
+    in_white_box.file_uploader:
+        class: InWhiteBoxBundle\Service\FileUploader
+        arguments:
+            $targetDir: '%product_directory%'
+    InWhiteBoxBundle\EventListeners\ProductImageUploadListener:
+        tags:
+           - { name: doctrine.event_listener, event: prePersist }
+           - { name: doctrine.event_listener, event: preUpdate }
+           - { name: doctrine.event_listener, event: preRemove }
+#           - { name: doctrine.event_listener, event: postLoad }
+        arguments: ['@in_white_box.file_uploader']

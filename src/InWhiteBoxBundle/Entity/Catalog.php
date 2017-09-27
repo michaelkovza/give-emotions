@@ -2,6 +2,8 @@
 
 namespace InWhiteBoxBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Catalog
  */
@@ -31,6 +33,13 @@ class Catalog
      * @var string
      */
     private $description;
+
+    /**
+     * @var array
+     */
+    private $pictureCollection;
+    private $mainPicture;
+
 
     /**
      * @return string
@@ -128,6 +137,38 @@ class Catalog
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPictureCollection()
+    {
+        return $this->pictureCollection;
+    }
+
+    /**
+     * @param ArrayCollection $pictureCollection
+     */
+    public function setPictureCollection($pictureCollection)
+    {
+        $this->pictureCollection = $pictureCollection;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMainPicture()
+    {
+        return $this->mainPicture;
+    }
+
+    /**
+     * @param mixed $mainPicture
+     */
+    public function setMainPicture($mainPicture)
+    {
+        $this->mainPicture = $mainPicture;
     }
 }
 

@@ -20,7 +20,12 @@ class CatalogController extends Controller
     public function indexAction()
     {
         $catalogRepository = $this->getDoctrine()->getRepository('InWhiteBoxBundle:Catalog');
-        $catalog = $catalogRepository->findAll();
+        $products = $catalogRepository->findAll();
+        $catalog = [];
+        foreach ($products as $key => $product){
+            $catalog[$key]['deleteForm'] = $this->createDeleteForm($product)->createView();
+            $catalog[$key]['product'] = $product;
+        }
         return $this->render('@InWhiteBox/Admin/Catalog/index.html.twig', ['catalog' => $catalog]);
     }
 
@@ -30,24 +35,28 @@ class CatalogController extends Controller
         return $this->render('@InWhiteBox/Admin/Catalog/show.html.twig', ['product' => $catalog, 'delete_form' => $deleteForm->createView()]);
     }
 
-    public function newAction( Request $request)
+    /**
+     * Creates a form to delete a news entity.
+     *
+     * @param Catalog $catalog
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(Catalog $catalog)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('catalog_delete', ['id' => $catalog->getId()]))
+            ->setMethod('DELETE')
+            ->getForm();
+    }
+
+    public function newAction(Request $request)
     {
         $catalog = new Catalog();
-        $form = $this->createForm(CatalogType::class,$catalog);
+        $form = $this->createForm(CatalogType::class, $catalog);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            /** @var UploadedFile $file */
-            $file = $catalog->getPicture();
-
-            $fileName = md5(uniqid('', true)) . '.' . $file->guessExtension();
-
-            $file->move(
-                $this->getParameter('product_directory'),
-                $fileName
-            );
-            $catalog->setPicture($fileName);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($catalog);
@@ -72,7 +81,7 @@ class CatalogController extends Controller
         return $this->redirectToRoute('catalog_index');
     }
 
-    public function editAction( Catalog $catalog, Request $request)
+    public function editAction(Catalog $catalog, Request $request)
     {
         $originalImage = $catalog->getPicture();
         $catalog->setPicture(
@@ -99,20 +108,5 @@ class CatalogController extends Controller
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ]);
-    }
-
-    /**
-     * Creates a form to delete a news entity.
-     *
-     * @param Catalog $catalog
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Catalog $catalog)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('catalog_delete', ['id' => $catalog->getId()]))
-            ->setMethod('DELETE')
-            ->getForm();
     }
 }

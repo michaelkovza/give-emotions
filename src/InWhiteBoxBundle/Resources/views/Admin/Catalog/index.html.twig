@@ -2,31 +2,25 @@
 {% block title %}Каталог{% endblock %}
 {% block body %}
     <h1>Каталог</h1>
-    <ul>
-        <li>
-            <a href="{{ path('catalog_new') }}">Создать новый элемент каталога</a>
-        </li>
-    </ul>
+    <div class="row_margin">
+        <a href="{{ path('catalog_new') }}" class="btn btn-success">Создать новый элемент каталога</a>
+    </div>
     <table id="catalog" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
         <thead>
         <tr>
-            <th>Название</th>
+            <th colspan="2">Название</th>
             <th>Действия</th>
         </tr>
         </thead>
         <tbody>
         {% for catalog_element in catalog%}
             <tr>
-                <td>{{ catalog_element.name }}</td>
+                <td colspan="2"><a href="{{ path('catalog_show', { 'id': catalog_element['product'].id }) }}">{{ catalog_element['product'].name }}</a></td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('catalog_show', { 'id': catalog_element.id }) }}">Подробнее...</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('catalog_edit', { 'id': catalog_element.id }) }}">Редактировать</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('catalog_edit', { 'id': catalog_element['product'].id }) }}" class="col col-md-2 btn btn-primary">Редактировать</a>
+                    {{ form_start(catalog_element['deleteForm'],{'attr':{'class':'col col-md-2'}}) }}
+                        <input type="submit" value="Удалить" class="btn btn-danger">
+                    {{ form_end(catalog_element['deleteForm']) }}
                 </td>
             </tr>
         {% endfor %}
