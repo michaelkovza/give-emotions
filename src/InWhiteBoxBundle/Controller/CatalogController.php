@@ -13,6 +13,7 @@ use InWhiteBoxBundle\Entity\Catalog;
 use InWhiteBoxBundle\Form\CatalogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class CatalogController extends Controller
@@ -29,8 +30,16 @@ class CatalogController extends Controller
         return $this->render('@InWhiteBox/Admin/Catalog/index.html.twig', ['catalog' => $catalog]);
     }
 
-    public function showAction(Catalog $catalog)
+    public function showAction(Request $request, Catalog $catalog)
     {
+        if ($request->isXmlHttpRequest()){
+            return new JsonResponse([
+                'name' => $catalog->getName(),
+                'description' => $catalog->getDescription(),
+                'images' => $catalog->getAllFilesURLArray(),
+                'price' => $catalog->getPrice(),
+            ]);
+        }
         $deleteForm = $this->createDeleteForm($catalog);
         return $this->render('@InWhiteBox/Admin/Catalog/show.html.twig', ['product' => $catalog, 'delete_form' => $deleteForm->createView()]);
     }

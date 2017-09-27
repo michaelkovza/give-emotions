@@ -170,5 +170,10 @@ class Catalog
     {
         $this->mainPicture = $mainPicture;
     }
+
+    public function getAllFilesURLArray()
+    {
+        return scandir($this->getPicture(), SCANDIR_SORT_DESCENDING);
+    }
 }
 
