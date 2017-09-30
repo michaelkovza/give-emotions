@@ -3,9 +3,20 @@
 
   &__close-button {
     position: absolute;
-    top: 0;
     right: 0;
+    top: 0;
     z-index: 10;
+    display: block;
+    height: 38px;
+    width: 38px;
+    background: url('../../images/card/close.png') no-repeat center;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &__content-wrapper {
@@ -32,7 +43,7 @@
     }
 
     &--crooked-line-to-bottom {
-      padding-top: 50px;
+      padding-top: 90px;
 
       &:after {
         content: '';
@@ -58,6 +69,7 @@
 
     &--crooked-line-to-top {
 
+
       &:after {
         content: '';
         position: absolute;
@@ -70,7 +82,6 @@
     }
 
     &--crooked-right-line {
-
 
       &:after {
         content: '';
@@ -85,6 +96,7 @@
     }
 
     &--crooked-right-line-position {
+
       &:after {
         content: '';
         position: absolute;
@@ -92,19 +104,22 @@
         background: url('../../images/modal-windows/crooked-right-line.png') no-repeat top;
         width: 529px;
         height: 100px;
-        top: 184px;
+        top: 224px;
         left: -243px;
       }
     }
 
     &--padding-top {
-      padding-top: 216px;
+      padding-top: 256px;
       margin-bottom: 114px;
     }
   }
 
   &__title {
     text-align: center;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    padding-bottom: 40px;
   }
 
   &__image {
@@ -114,7 +129,9 @@
 
   &__offer {
     font-size: 1.3em;
+    padding-top: 40px;
     padding-bottom: 5px;
+
   }
 
   &__link {
