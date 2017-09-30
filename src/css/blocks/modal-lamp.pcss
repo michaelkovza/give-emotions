@@ -1,0 +1,150 @@
+.modal-lamp {
+  position: relative;
+
+  &__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  &__content {
+    width: 280px;
+
+    &--width {
+      width: 470px;
+    }
+  }
+
+  &__description {
+    padding-bottom: 5px;
+    margin-bottom: 150px;
+    position: relative;
+
+    &--left-padding {
+      padding-left: 23px;
+    }
+
+    &--crooked-line-to-bottom {
+      padding-top: 50px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url('../../images/modal-windows/crooked-line.png') no-repeat top;
+        width: 438px;
+        height: 52px;
+      }
+    }
+
+    &--straight-line {
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url('../../images/modal-windows/straight-line.png') no-repeat top;
+        width: 369px;
+        height: 2px;
+      }
+    }
+
+    &--crooked-line-to-top {
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url('../../images/modal-windows/crooked-line-to-top.png') no-repeat top;
+        width: 504px;
+        height: 100px;
+        top: -76px;
+      }
+    }
+
+    &--crooked-right-line {
+
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url('../../images/modal-windows/crooked-right-line.png') no-repeat top;
+        width: 529px;
+        height: 100px;
+        top: -76px;
+        left: -243px;
+      }
+    }
+
+    &--crooked-right-line-position {
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url('../../images/modal-windows/crooked-right-line.png') no-repeat top;
+        width: 529px;
+        height: 100px;
+        top: 184px;
+        left: -243px;
+      }
+    }
+
+    &--padding-top {
+      padding-top: 216px;
+      margin-bottom: 114px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__offer {
+    font-size: 1.3em;
+    padding-bottom: 5px;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    font-size: 1.3em;
+    height: 52px;
+    background: var(--button-active-color);
+    position: relative;
+    color: var(--color-information-text);
+    text-transform: uppercase;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 22px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(-50%, -50%);
+      background: url('../../images/gallery/button-arrow.png') no-repeat center;
+    }
+  }
+
+  &__link-content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(17%, -50%);
+    letter-spacing: 4px;
+  }
+}
