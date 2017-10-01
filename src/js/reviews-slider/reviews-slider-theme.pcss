@@ -1,0 +1,78 @@
+@import '../../css/common/variables.pcss';
+
+.modal-reviews-slider {
+
+  & .slick-arrow {
+    visibility: hidden;
+  }
+
+  /* Dots */
+
+  & .slick-dots {
+    position: absolute;
+    bottom: 34px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+  }
+
+  & .slick-dots li {
+    position: relative;
+
+    display: inline-block;
+
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    padding: 0;
+
+    cursor: pointer;
+  }
+
+  & .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    color: transparent;
+    border-radius: 50%;
+    background: var(--border-color);
+  }
+
+  & .slick-dots li button:hover,
+  & .slick-dots li button:focus {
+    outline: none;
+  }
+
+  .slick-dots li button:hover:before,
+  .slick-dots li button:focus:before {
+    opacity: 0.75;
+    background: var(--button-active-color);
+  }
+
+  & .slick-dots li button:before {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    display: block;
+    width: 18px;
+    height: 18px;
+    content: '';
+    background: var(--unactive-dots);
+    border-radius: 50%;
+    transform: translate(0, -50%);
+
+  }
+
+  & .slick-dots li.slick-active button:before {
+    opacity: 1;
+    background: var(--button-active-color);
+  }
+}
