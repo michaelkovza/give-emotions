@@ -23,25 +23,11 @@ class CatalogController extends Controller
         $catalogRepository = $this->getDoctrine()->getRepository('InWhiteBoxBundle:Catalog');
         $products = $catalogRepository->findAll();
         $catalog = [];
-        foreach ($products as $key => $product){
+        foreach ($products as $key => $product) {
             $catalog[$key]['deleteForm'] = $this->createDeleteForm($product)->createView();
             $catalog[$key]['product'] = $product;
         }
         return $this->render('@InWhiteBox/Admin/Catalog/index.html.twig', ['catalog' => $catalog]);
-    }
-
-    public function showAction(Request $request, Catalog $catalog)
-    {
-        if ($request->isXmlHttpRequest()){
-            return new JsonResponse([
-                'name' => $catalog->getName(),
-                'description' => $catalog->getDescription(),
-                'images' => $catalog->getAllFilesURLArray(),
-                'price' => $catalog->getPrice(),
-            ]);
-        }
-        $deleteForm = $this->createDeleteForm($catalog);
-        return $this->render('@InWhiteBox/Admin/Catalog/show.html.twig', ['product' => $catalog, 'delete_form' => $deleteForm->createView()]);
     }
 
     /**
@@ -57,6 +43,20 @@ class CatalogController extends Controller
             ->setAction($this->generateUrl('catalog_delete', ['id' => $catalog->getId()]))
             ->setMethod('DELETE')
             ->getForm();
+    }
+
+    public function showAction(Request $request, Catalog $catalog)
+    {
+        if ($request->isXmlHttpRequest()) {
+            return new JsonResponse([
+                'name' => $catalog->getName(),
+                'description' => $catalog->getDescription(),
+                'images' => $catalog->getAllFilesURLArray(),
+                'price' => $catalog->getPrice(),
+            ]);
+        }
+        $deleteForm = $this->createDeleteForm($catalog);
+        return $this->render('@InWhiteBox/Admin/Catalog/show.html.twig', ['product' => $catalog, 'delete_form' => $deleteForm->createView()]);
     }
 
     public function newAction(Request $request)
@@ -92,22 +92,27 @@ class CatalogController extends Controller
 
     public function editAction(Catalog $catalog, Request $request)
     {
-        $originalImage = $catalog->getPicture();
-        $catalog->setPicture(
-            new UploadedFile('uploads/products/' . $catalog->getPicture(), $catalog->getPicture())
-        );
+        list($originalMainImage, $originalImageCollectionFiles) = $this->initFromExist($catalog);
+        $originalProductImageDirectory = $catalog->getPicture();
         $deleteForm = $this->createDeleteForm($catalog);
         $editForm = $this->createForm(CatalogType::class, $catalog);
         $editForm->handleRequest($request);
+
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            if ($catalog->getPicture() === null) {
-                $image = $originalImage;
-            } else {
-                $fileUploader = $this->get('kam.news_picture_uploader');
-                $image = $fileUploader->upload($catalog->getPicture());
+            if ($catalog->getMainPicture() === null || !($catalog->getMainPicture() instanceof UploadedFile)) {
+                $catalog->setMainPicture($originalMainImage);
             }
-            $catalog->setPicture($image);
-            $this->getDoctrine()->getManager()->flush();
+            if (empty($catalog->getPictureCollection())) {
+                $catalog->setPictureCollection($originalImageCollectionFiles);
+            }
+
+
+            $catalog->setPicture(null);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($catalog);
+            $em->flush();
+            $uploader = $this->get('in_white_box.file_uploader');
+            $this->removeOldFiles($uploader->getTargetDir() . DIRECTORY_SEPARATOR . $originalProductImageDirectory);
 
             return $this->redirectToRoute('catalog_show', ['id' => $catalog->getId()]);
         }
@@ -117,5 +122,37 @@ class CatalogController extends Controller
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ]);
+    }
+
+    /**
+     * @param Catalog $catalog
+     * @return array
+     * @throws \Symfony\Component\HttpFoundation\File\Exception\FileException
+     */
+    private function initFromExist(Catalog $catalog)
+    {
+        $fileUploader = $this->get('in_white_box.file_uploader');
+        $catalogPicturesDirectoryPath = $fileUploader->getTargetDir() . DIRECTORY_SEPARATOR . $catalog->getPicture() . DIRECTORY_SEPARATOR;
+
+        $originalMainImage = $catalog->getMainPicture();
+        $catalog->setMainPicture(
+            new UploadedFile($catalogPicturesDirectoryPath . $originalMainImage, $originalMainImage, null, null, null, true)
+        );
+
+        $originalImageCollection = $catalog->getPictureCollection();
+        $originalImageCollectionFiles = [];
+        foreach ($originalImageCollection as $originalImage) {
+            $originalImageCollectionFiles[] = new UploadedFile($catalogPicturesDirectoryPath . $originalImage, $originalImage, null, null, null, true);
+        }
+        return array($originalMainImage, $originalImageCollectionFiles);
+    }
+
+    /**
+     * @param $originalProductImageDirectory
+     */
+    private function removeOldFiles($originalProductImageDirectory)
+    {
+        $fileUploader = $this->get('in_white_box.file_uploader');
+        $fileUploader->removeFilesFromDir($originalProductImageDirectory);
     }
 }

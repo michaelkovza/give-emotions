@@ -4,10 +4,10 @@ in_white_box_homepage:
 
 # Админка
 in_white_box_admin:
-  path: /admin
+  path: /admin/
   defaults: { _controller: "InWhiteBoxBundle:Admin:index" }
 in_white_box_auth:
-  path: /admin/auth
+  path: /admin/auth/
   defaults: {_controller: "InWhiteBoxBundle:Security:auth"}
 
 # Каталог
@@ -16,18 +16,18 @@ catalog_index:
   defaults: { _controller: "InWhiteBoxBundle:Catalog:index" }
   methods: GET
 catalog_show:
-  path: /admin/catalog/{id}/show
+  path: /admin/catalog/{id}/show/
   defaults: { _controller: "InWhiteBoxBundle:Catalog:show" }
   methods: GET
 catalog_new:
-  path: /admin/catalog/new
+  path: /admin/catalog/new/
   defaults: { _controller: "InWhiteBoxBundle:Catalog:new" }
   methods: [GET, POST]
 catalog_edit:
-  path: /admin/catalog/{id}/edit
+  path: /admin/catalog/{id}/edit/
   defaults: { _controller: "InWhiteBoxBundle:Catalog:edit" }
   methods: [GET, POST]
 catalog_delete:
-  path: /admin/catalog/{id}/delete
+  path: /admin/catalog/{id}/delete/
   defaults: { _controller: "InWhiteBoxBundle:Catalog:delete" }
   methods: DELETE

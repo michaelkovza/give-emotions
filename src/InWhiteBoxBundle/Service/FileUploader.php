@@ -8,6 +8,7 @@
 
 namespace InWhiteBoxBundle\Service;
 
+use InWhiteBoxBundle\Entity\Catalog;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class FileUploader
@@ -28,23 +29,19 @@ class FileUploader
 
     /**
      * @param array $files
-     * @return string
      * @throws \RuntimeException
      */
-    public function upload(array $files)
+    public function upload(array $files, $dir)
     {
-        $mainFilesDirectory = $this->getTargetDir() . DIRECTORY_SEPARATOR . md5(uniqid('catalog_item', false));
-
-        /** @var $file UploadedFile */
-        foreach ($files as $key => $file) {
-            if ($key === 'main') {
-                $fileName = uniqid('main', false) . '.' . $file->guessExtension();
-            } else {
-                $fileName = md5(uniqid('', false)) . '.' . $file->guessExtension();
+            /** @var $file UploadedFile */
+            foreach ($files as $key => $file) {
+                if ($key === 'main') {
+                    $fileName = uniqid('main_', false) . '.' . $file->guessExtension();
+                } else {
+                    $fileName = md5(uniqid('', false)) . '.' . $file->guessExtension();
+                }
+                $file->move($this->getTargetDir() . DIRECTORY_SEPARATOR . $dir, $fileName);
             }
-            $file->move($mainFilesDirectory, $fileName);
-        }
-        return $mainFilesDirectory;
     }
 
     /**
@@ -53,5 +50,32 @@ class FileUploader
     public function getTargetDir()
     {
         return $this->targetDir;
+    }
+
+    public function removeFiles($entity)
+    {
+        if (!$entity instanceof Catalog) {
+            return;
+        }
+
+        $files = glob($this->getTargetDir() . DIRECTORY_SEPARATOR . $entity->getPicture() . DIRECTORY_SEPARATOR . '*');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
+        rmdir($this->getTargetDir() . DIRECTORY_SEPARATOR . $entity->getPicture());
+        $entity->setPicture(null);
+    }
+
+    public function removeFilesFromDir($dir)
+    {
+        $files = glob($dir . DIRECTORY_SEPARATOR . '*');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
+        rmdir($dir);
     }
 }

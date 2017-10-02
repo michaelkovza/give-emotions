@@ -1,49 +1,85 @@
 {% extends '@InWhiteBox/Admin/admin.html.twig' %}
 {% block title %}Редактирование элемента каталога{% endblock %}
-{% block additionalstyles %}
-
-{% endblock %}
-{% block addheadscript %}
-    <script type="text/javascript" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-{% endblock %}
 {% block body %}
     <h1>Редактирование элемента каталога</h1>
-
-    {{ form_start(edit_form,{'attr':{'novalidate':'novalidate'}}) }}
-    <div class="form-group">
-        {{ form_row(edit_form.name,{'attr':{'class':'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(edit_form.description,{'attr':{'class':'form-control'}}) }}
-    </div>
-    <div class="form-group">
-        {{ form_row(edit_form.price,{'attr':{'class':'form-control'}}) }}
-    </div>
-    {% if form_errors(edit_form.picture) %}
-        <label>{{ form_errors(edit_form.picture) }}</label>
-    {% endif %}
-    <div class="form-group">
-        <div>
-            <div class="document_img"><img src="{{ asset(product.picture) }}" alt=""></div>
+    <div class="container col-lg-8">
+        {{ form_start(edit_form, {'attr': {'novalidate': 'true'}}) }}
+        {% if form_errors(edit_form.name) %}
+            <label>{{ form_errors(edit_form.name) }}</label>
+        {% endif %}
+        <div class="form-group row">
+            {{ form_label(edit_form.name, null, {'label_attr': {'class': 'col-2 col-form-label'}}) }}
+            <div class="col-10">
+                {{ form_widget(edit_form.name, { 'attr': {'class': 'form-control'} }) }}
+            </div>
         </div>
-        <label class="btn btn-default btn-file btn-lg">Изменить
-            {{ form_widget(edit_form.picture, {'attr':{'class':'hidden'}}) }}
-        </label>
+        {% if form_errors(edit_form.description) %}
+            <label>{{ form_errors(edit_form.description) }}</label>
+        {% endif %}
+        <div class="form-group row">
+            {{ form_label(edit_form.description, null, {'label_attr': {'class': 'col-2 col-form-label'}}) }}
+            <div class="col-10">
+                {{ form_widget(edit_form.description, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        {% if form_errors(edit_form.price) %}
+            <label>{{ form_errors(edit_form.price) }}</label>
+        {% endif %}
+        <div class="form-group row">
+            <div class="col col-sm-1">
+                {{ form_label(edit_form.price, null, {'label_attr': {'class': 'col-2 col-form-label'}}) }}
+            </div>
+            <div class="col col-sm-2">
+                {{ form_widget(edit_form.price, { 'attr': {'class': 'form-control col-2'} }) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col col-md-6">
+                <img id="image" class="img-thumbnail" src="{{ absolute_url(asset('uploads/products/' ~ product.picture ~ '/' ~ product.mainPicture.filename)) }}" alt=""/>
+            </div>
+            <div class="col col-md-4">
+                {% if form_errors(edit_form.pictureCollection) %}
+                    <label>{{ form_errors(edit_form.pictureCollection) }}</label>
+                {% endif %}
+                <div class="form-group" id="mainPicture">
+                    <label class="btn btn-default btn-file btn-lg">Выберите файл
+                        {{ form_widget(edit_form.mainPicture, {'attr':{'class':'hidden'}}) }}
+                    </label>
+                </div>
+                {% if form_errors(edit_form.pictureCollection) %}
+                    <label>{{ form_errors(edit_form.pictureCollection) }}</label>
+                {% endif %}
+                <div class="form-group" id="pictureCollection">
+                    <label class="btn btn-default btn-file btn-lg">Выберите файлы
+                        {{ form_widget(edit_form.pictureCollection, {'attr':{'class':'hidden'}}) }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <input class="btn btn-success" type="submit" value="Редактировать"/>
+            <a class="btn btn-primary" href="{{ path('catalog_index') }}">К списку</a>
+        </div>
+        {{ form_end(edit_form) }}
     </div>
-    <input class="btn btn-default" type="submit" value="Сохранить изменения"/>
-    <div class="mt-1">
-        <ul>
-            <li>
-                <a href="{{ path('catalog_index') }}">К каталогу </a>
-            </li>
-        </ul>
-    </div>
-    {{ form_end(edit_form) }}
 {% endblock %}
-{% block additionalscripts %}
-    <script type="text/javascript">
-        window.onload = function () {
-            CKEDITOR.replace('inwhitebox_text');
-        };
+{% block scripts %}
+    <script src="{{ asset('admin/js/jquery.js') }}"></script>
+    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#inwhiteboxbundle_catalog_mainPicture").change(function () {
+            readURL(this);
+        });
     </script>
 {% endblock %}

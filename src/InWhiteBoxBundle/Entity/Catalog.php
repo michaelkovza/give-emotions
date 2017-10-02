@@ -2,8 +2,6 @@
 
 namespace InWhiteBoxBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
 /**
  * Catalog
  */
@@ -37,7 +35,8 @@ class Catalog
     /**
      * @var array
      */
-    private $pictureCollection;
+    private $pictureCollection = [];
+
     private $mainPicture;
 
 
@@ -148,7 +147,7 @@ class Catalog
     }
 
     /**
-     * @param ArrayCollection $pictureCollection
+     * @param array $pictureCollection
      */
     public function setPictureCollection($pictureCollection)
     {
@@ -174,6 +173,11 @@ class Catalog
     public function getAllFilesURLArray()
     {
         return scandir($this->getPicture(), SCANDIR_SORT_DESCENDING);
+    }
+
+    public function addFileToCollection($fileName)
+    {
+        $this->pictureCollection[]=$fileName;
     }
 }
 

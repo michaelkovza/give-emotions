@@ -1,7 +1,30 @@
-.row_margin{
+.row_margin {
     margin-bottom: 10px;
     margin-top: 10px;
 }
-.right_paginator{
+
+.right_paginator {
     float: right;
+}
+
+.admin_image {
+    height: 250px;
+    width: 250px;
+    display: block;
+}
+.admin_image-main {
+    height: 500px;
+    width: 500px;
+    display: block;
+}
+.card {
+    float: left;
+    width: 33.333%;
+    padding: .75rem;
+    margin-bottom: 2rem;
+    border: 0;
+}
+
+.card > img {
+    margin-bottom: .75rem;
 }

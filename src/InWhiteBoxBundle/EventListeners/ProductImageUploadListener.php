@@ -13,6 +13,7 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use InWhiteBoxBundle\Entity\Catalog;
 use InWhiteBoxBundle\Service\FileUploader;
+use Symfony\Component\Finder\Finder;
 
 class ProductImageUploadListener
 {
@@ -32,16 +33,20 @@ class ProductImageUploadListener
 
     private function uploadFile($entity)
     {
-
         if (!$entity instanceof Catalog) {
             return;
         }
 
         $files = $entity->getPictureCollection();
         $files['main'] = $entity->getMainPicture();
-        $filesDirectory = $this->uploader->upload($files);
+        if (($originalDirectory = $entity->getPicture()) !== null){
+            $mainFilesDirectory = $originalDirectory;
+        } else {
+            $mainFilesDirectory = md5(uniqid('catalog_item', false));
+        }
 
-        $entity->setPicture($filesDirectory);
+        $this->uploader->upload($files, $mainFilesDirectory);
+        $entity->setPicture($mainFilesDirectory);
     }
 
     public function preUpdate(PreUpdateEventArgs $args)
@@ -56,33 +61,26 @@ class ProductImageUploadListener
 
         $entity = $args->getEntity();
 
-        $this->removeFiles($entity);
+        $this->uploader->removeFiles($entity);
     }
 
-    private function removeFiles($entity)
+    public function postLoad(LifecycleEventArgs $args)
     {
-        if (!$entity instanceof Catalog) {
+        $entity = $args->getEntity();
+
+        if ((!$entity instanceof Catalog) || ($entity->getPicture() === null)) {
             return;
         }
 
-        $files = glob($entity->getPicture() . DIRECTORY_SEPARATOR . '*');
-        foreach ($files as $file) {
-            if (is_file($file)){
-                unlink($file);
+        $filesFinder = new Finder();
+        $filesFinder->files()->in($this->uploader->getTargetDir() . DIRECTORY_SEPARATOR . $entity->getPicture());
+        foreach ($filesFinder as $imageFile) {
+            $fileUrl = $imageFile->getRelativePathname();
+            if (strpos($imageFile->getFilename(), 'main_') !== false) {
+                $entity->setMainPicture($fileUrl);
+            } else {
+                $entity->addFileToCollection($fileUrl);
             }
         }
-        rmdir($entity->getPicture());
     }
-//    public function postLoad(LifecycleEventArgs $args)
-//    {
-//        $entity = $args->getEntity();
-//
-//        if (!$entity instanceof Catalog) {
-//            return;
-//        }
-//
-//        if ($fileName = $entity->getBrochure()) {
-//            $entity->setBrochure(new File($this->uploader->getTargetDir().'/'.$fileName));
-//        }
-//    }
 }

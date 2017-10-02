@@ -6,6 +6,12 @@ security:
     providers:
         user_provider:
           id: in_white_box.user_provider
+        in_memory:
+          memory:
+            users:
+               admin:
+                  password: admin
+                  roles: 'ROLE_ADMIN'
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -18,11 +24,12 @@ security:
             form_login:
                 login_path: in_white_box_auth
                 check_path: in_white_box_auth
-                provider: user_provider
+                provider: in_memory
         main:
             anonymous: ~
     encoders:
         InWhiteBoxBundle\Entity\WebUser: plaintext
+        Symfony\Component\Security\Core\User\User: plaintext
     access_control:
             - { path: ^/admin/auth, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/admin, roles: ROLE_ADMIN }
