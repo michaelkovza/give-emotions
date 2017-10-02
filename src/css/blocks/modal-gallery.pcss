@@ -1,0 +1,47 @@
+.modal-gallery {
+  position: relative;
+
+  &__title {
+    text-align: center;
+    padding-bottom: 40px;
+    font-size: 2.2em;
+    text-transform: uppercase;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 38px;
+    right: 38px;
+    z-index: 10;
+    display: block;
+    height: 38px;
+    width: 38px;
+    background: url('../../images/card/close.png') no-repeat center;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  &__image-wrapper {
+    width: 375px;
+    height: 300px;
+    padding-bottom: 18px;
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    width: 375px;
+    height: 300px;
+  }
+}

@@ -1,0 +1,103 @@
+.modal-contacts {
+
+  position: relative;
+
+  &__title {
+    text-align: center;
+    padding-bottom: 40px;
+    font-size: 2.2em;
+    text-transform: uppercase;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 38px;
+    right: 38px;
+    z-index: 10;
+    display: block;
+    height: 38px;
+    width: 38px;
+    background: url('../../images/card/close.png') no-repeat center;
+    padding: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
+
+  &__item {
+    padding: 0 25px;
+    width: 449px;
+
+    &--width {
+      width: 520px;
+    }
+
+    &--margin-left {
+      margin-left: 40px;
+    }
+  }
+
+  &__address {
+    font-style: normal;
+    padding-top: 45px;
+  }
+
+  &__phone {
+    margin: 25px 0;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__information {
+    font-size: 1.6em;
+  }
+
+  &__offer-wrapper {
+    width: 580px;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+
+  &__offer {
+    font-size: 20px;
+    padding-bottom: 5px;
+  }
+
+  &__button {
+    width: 100%;
+    height: 52px;
+    color: var(--button-text-color);
+    text-transform: uppercase;
+    background: var(--button-color);
+    position: relative;
+    text-align: left;
+    padding: 0 37px;
+    transition: background 0.3s ease-in;
+
+    &:hover {
+      background: var(--button-active-color);
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 22px;
+      position: absolute;
+      top: 16px;
+      right: 19px;
+      background: url('../../images/gallery/button-arrow.png') no-repeat center;
+    }
+  }
+}
