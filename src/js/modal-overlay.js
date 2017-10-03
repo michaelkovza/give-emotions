@@ -1,21 +1,22 @@
 const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeButtonSelector, previewCardItemsSelector}) => {
     const previewCardItemsSelectorArr = Array.prototype.slice.call(previewCardItemsSelector);
 
-    const APIcall = () => {
+    /*const APIcall = () => {
+
 
         previewCardItemsSelectorArr.forEach((element) => {
             element.addEventListener('click', () => {
                 let identificator = element.id;
-                fetch('https://jsoneditoronline.org/?id=3f596dce6e507c6808c5d430148fcfd0', {'mode': 'no-cors'})
+                fetch('http://www.json-generator.com/api/json/get/cjoktNHjdu?indent=2')
                     .then(res => res.json())
-                    .then((out) => {
-                        console.log('this json', out);
-                        console.log(out.data.poster);
-                    })
+                    .then((data) => {
+                        console.log(data.person);
+                    });
+                    /!*.then(data => console.log(data))*!/
             });
         });
 
-    };
+    };*/
 
     const showCard = () => {
         previewCardItemsSelectorArr.forEach((element) => {
@@ -43,7 +44,8 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
             }
         })
     };
-    APIcall();
+
+   /* APIcall();*/
     showCard();
     hideCardByCloseButton();
     hideCardByModalOverlay();
