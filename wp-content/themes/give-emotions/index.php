@@ -4,12 +4,25 @@
  * User: grizz
  * Date: 08.10.2017
  * Time: 19:50
- */get_header();?>
+ */
+
+//$tes = new WP_Post();
+$productArgs = [
+	'post_type' => 'product',
+	'suppress_filters' => true,
+];
+$galleryArgs = [
+	'post_type' =>'gallery'
+];
+$products = new WP_Query($productArgs);
+$gallery = new WP_Query($galleryArgs);
+
+get_header();?>
 <div class="wrapper">
 	<div class="wrapper__content">
 		<header class="header">
-			<img class="header__white-box" src="<?=get_stylesheet_directory_uri() . '/front/build'?>/images/white-box.png" alt="white box image">
-			<img class="header__give-emotions" src="<?=get_stylesheet_directory_uri() . '/front/build'?>/images/give-emotions.png" alt="give emotions image">
+			<img class="header__white-box" src="<?= get_stylesheet_directory_uri() . '/front/build'?>/images/white-box.png" alt="white box image">
+			<img class="header__give-emotions" src="<?= get_stylesheet_directory_uri() . '/front/build'?>/images/give-emotions.png" alt="give emotions image">
 			<div class="header__content header-content">
 				<p class="header-content__text header-content__text--accent">ОРИГИНАЛЬНЫЙ СВЕТИЛЬНИК-НОЧНИК ОТ&nbsp;ПРОИЗВОДИТЕЛЯ</p>
 				<p class="header-content__text">ДОСТАВКА ПО&nbsp;ВСЕЙ РОССИИ</p>
@@ -62,11 +75,20 @@
 	<div class="wrapper__content wrapper__content--vertical-padding">
 		<div class="lamp">
 			<div class="lamp__slider lamp-slider">
-				<?php // for?>
-				<div class="lamp__slider-item lamp-slider__item">
-					<img class="lamp__image lamp-slider__image" src="<?=get_stylesheet_directory_uri() . '/front/build'?>/images/lamp-1.png" alt="First lamp">
-				</div>
-				<?php // endfor?>
+				<?php
+                while ($gallery->have_posts()):
+				    $gallery->the_post();
+				    $galleryImages = get_post_gallery_images();
+
+				    foreach($galleryImages as $galleryImage):?>
+				        <div class="lamp__slider-item lamp-slider__item">
+					        <img class="lamp__image lamp-slider__image" src = "<?php echo $galleryImage?>">
+				        </div>
+				<?php
+                    endforeach;
+                endwhile;
+				wp_reset_postdata();
+				?>
 			</div>
 		</div>
 	</div>
@@ -75,19 +97,20 @@
 	<div class="wrapper__content wrapper__content--width">
 		<div class="gallery">
 			<ul class="gallery__list">
-				<?php //for?>
+				<?php while($products->have_posts()):
+					$products->the_post()?>
 				<li class="gallery__item">
 					<div class="gallery__image-wrapper">
-						<img class="gallery__image" src="<?=get_stylesheet_directory_uri() . '/front/build'?>/images/forest-spirit.png" alt="Forest Spirit Image">
+						<img class="gallery__image" src="<?= get_field('main_image') ?>" alt="<?php echo get_the_title() ?>">
 					</div>
 					<article class="gallery__description">
-						<h1 class="gallery__title title">дух леса</h1>
-						<p class="gallery__price title">1800<span class="gallery__currency">&nbsp;руб</span>
+						<h1 class="gallery__title title"><?php the_title()?></h1>
+						<p class="gallery__price title"><?= get_field('price')?><span class="gallery__currency">&nbsp;руб</span>
 						</p>
 					</article>
 					<button class="gallery__button title">просмотр</button>
 				</li>
-				<?php //endfor?>
+				<?php endwhile; wp_reset_postdata(); ?>
 			</ul>
 		</div>
 	</div>
@@ -128,7 +151,6 @@
 						     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiI+DQogIDxpbWFnZSBpZD0i0KHQu9C+0LlfMyIgZGF0YS1uYW1lPSLQodC70L7QuSAzIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhsaW5rOmhyZWY9ImRhdGE6aW1nL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUNBQUFBQWdDQU1BQUFCRXBJckdBQUFBQkdkQlRVRUFBTEdQQy94aEJRQUFBQ0JqU0ZKTkFBQjZKZ0FBZ0lRQUFQb0FBQUNBNkFBQWRUQUFBT3BnQUFBNm1BQUFGM0NjdWxFOEFBQUFjbEJNVkVVQUFBQlpXVmxaV1ZsWldWbFpXVmxaV1ZsWldWbFlXRmhnWUdCWVdGaFpXVmxiVzF0WldWbGFXbHBhV2xwWldWbFpXVmxaV1ZsaVltSlpXVmxaV1ZsWldWbFpXVmxhV2xwTlRVMVpXVmxaV1ZsWldWbFpXVmxaV1ZsWldWbFpXVmxaV1ZsWldWbG1abVpaV1ZsWldWa0FBQUJ1WjdxeEFBQUFKSFJTVGxNQSt0TEl5ZE5BQndpcDRRNXBNeHFIc0xJTHErZm84NWdFaWFUZ05sZDVtdXhnQTlGU3pIaTVBQUFBQVdKTFIwUUFpQVVkU0FBQUFBbHdTRmx6QUFBTEV3QUFDeE1CQUpxY0dBQUFBSE5KUkVGVU9NdnQwTWNLZ0RBTWdPRm8zYlB1dlgzL1p6VDFKRWdOS09MRi94VElSNkNGbFFpK0FvcktHTk9rUURkTXdDd1pzUGUxSERndVhBTVBDT0NMWlJCeUhrbEFMRUJ5OFV4TGdKUUMyVTJRRjFncFFJVkRmUVlOSEdzcDBGR2dwOEJ3QnVPRXpmdDVISlkzL3VFSEQ4QUd6OHQwVi9MejVOUUFBQUFBU1VWT1JLNUNZSUk9Ii8+DQo8L3N2Zz4NCg=="
 						     alt="facebook">
 					</a>
-
 				</li>
 				<li class="footer__item">
 					<a class="footer__link" href="#" title="vk">
