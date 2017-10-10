@@ -1,6 +1,4 @@
-// переделать на foreach 
-
-const getCurrentImage = ({ largeImageSelector, smallImagesSelector }) => {
+const getCurrentImage = ({largeImageSelector, smallImagesSelector}) => {
     for (let i = 0; i <= smallImagesSelector.length - 1; i++) {
         smallImagesSelector[i].addEventListener('click', () => {
             let currentImageSrc = smallImagesSelector[i].getAttribute('src');
