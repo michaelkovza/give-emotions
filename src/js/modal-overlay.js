@@ -6,7 +6,7 @@ const getImagesFromServerOptions = {
     url: 'http://www.json-generator.com/api/json/get/cfBuyUxPOq?indent=2',
     fragmentContianerSelector: document.querySelectorAll('.card__slider')[0],
     cardSliderSelector: $('.card-slider'),
-    elemId: 'firstUl'
+    elementId: 'firstUl'
 };
 
 const clearSliderImages = (sliderSelector) => {
