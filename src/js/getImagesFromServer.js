@@ -6,10 +6,10 @@ const getCurrentImageOptions = {
     smallImagesSelector: document.getElementsByClassName('card__small-image')
 };
 
-const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector, elementId}) => {
+const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector}, elementId) => {
     fetch(url)
         .then(res => res.json())
-        .then( function (data) {
+        .then(data => {
             let fragment = document.createDocumentFragment();
 
             data[elementId].forEach((currImage) => {

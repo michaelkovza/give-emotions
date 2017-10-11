@@ -3,11 +3,15 @@ import $ from 'jquery';
 import getImagesFromServer from '../js/getImagesFromServer';
 
 const getImagesFromServerOptions = {
-    url: 'http://www.json-generator.com/api/json/get/cfBuyUxPOq?indent=2',
+    url: 'http://www.json-generator.com/api/json/get/bOhSbpbIde?indent=2',
     fragmentContianerSelector: document.querySelectorAll('.card__slider')[0],
-    cardSliderSelector: $('.card-slider'),
-    elementId: 'firstUl'
+    cardSliderSelector: $('.card-slider')
 };
+
+const getElementId = (element) => {
+    return element.id;
+};
+
 
 const clearSliderImages = (sliderSelector) => {
     sliderSelector.innerHTML = '';
@@ -16,11 +20,13 @@ const clearSliderImages = (sliderSelector) => {
 const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeButtonSelector, previewCardItemsSelector}) => {
     const previewCardItemsSelectorArr = Array.prototype.slice.call(previewCardItemsSelector);
 
+
+
     const showCard = () => {
         previewCardItemsSelectorArr.forEach((element) => {
             element.addEventListener('click', () => {
                 modalOverlaySelector.classList.remove(modalOverlayClosedClass);
-                getImagesFromServer(getImagesFromServerOptions)
+                getImagesFromServer(getImagesFromServerOptions, getElementId(element))
 
             });
         });
