@@ -5,6 +5,7 @@
  * Date: 08.10.2017
  * Time: 20:35
  */
+use GiveEmotions\GiveEmotionsProduct;
 add_action( 'wp_enqueue_scripts', 'my_assets' );
 add_action( 'wp_head', 'js_variables' );
 
@@ -30,6 +31,10 @@ function js_variables() {
 function getPostInfo() {
 	$postID = $_POST['postId'];
 	if ( $postID ) {
+//		$queryOptions = [
+//			'p' => $postID,
+//		];
+//		$test = new GiveEmotionsProduct();
 		$product = get_post( $postID );
 
 		$gallery = get_post_gallery_images( $postID );

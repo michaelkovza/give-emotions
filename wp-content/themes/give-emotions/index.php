@@ -5,7 +5,7 @@
  * Date: 08.10.2017
  * Time: 19:50
  */
-
+include ('/wp-content/plugins/give_emotions_posts/classes/GiveEmotionsProduct/GiveEmotionsProduct.php');
 //$tes = new WP_Post();
 $productArgs = [
 	'post_type' => 'product',
@@ -16,7 +16,7 @@ $galleryArgs = [
 ];
 $products = new WP_Query($productArgs);
 $gallery = new WP_Query($galleryArgs);
-
+$test = new GiveEmotionsProduct();
 get_header();?>
 <div class="wrapper">
 	<div class="wrapper__content">
