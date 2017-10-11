@@ -1,5 +1,6 @@
 import $ from 'jquery';
 
+import disableScroll from './disableScroll';
 import getImagesFromServer from '../js/getImagesFromServer';
 
 const getImagesFromServerOptions = {
@@ -26,7 +27,8 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
         previewCardItemsSelectorArr.forEach((element) => {
             element.addEventListener('click', () => {
                 modalOverlaySelector.classList.remove(modalOverlayClosedClass);
-                getImagesFromServer(getImagesFromServerOptions, getElementId(element))
+                getImagesFromServer(getImagesFromServerOptions, getElementId(element));
+                disableScroll(true);
 
             });
         });
@@ -36,7 +38,8 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
         closeButtonSelector.addEventListener('click', () => {
             modalOverlaySelector.classList.add(modalOverlayClosedClass);
             getImagesFromServerOptions.cardSliderSelector.slick('unslick');
-            clearSliderImages(getImagesFromServerOptions.fragmentContianerSelector)
+            clearSliderImages(getImagesFromServerOptions.fragmentContianerSelector);
+            disableScroll(false);
 
         });
     };
@@ -49,6 +52,7 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
                     modalOverlaySelector.classList.add(modalOverlayClosedClass);
                     getImagesFromServerOptions.cardSliderSelector.slick('unslick');
                     clearSliderImages(getImagesFromServerOptions.fragmentContianerSelector);
+                    disableScroll(false);
                     return;
                 }
                 target = target.parentNode;

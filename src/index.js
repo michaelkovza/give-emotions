@@ -13,21 +13,18 @@ import initGallerySlick from './js/gallery-slider/gallery-slider';
 
 
 import initModalOverlay from './js/modal-overlay';
+import initInformationModalOverlay from './js/information-modal-overlay';
 
 
 window.addEventListener('load', () => {
     const LampSliderSelector = $('.lamp-slider');
     initLampSlick(LampSliderSelector);
 
-
-
     const ReviewsSliderSelector = $('.modal-reviews-slider');
     initReviewsSlick(ReviewsSliderSelector);
 
     const GallerySliderSelector = $('.modal-gallery-slider');
     initGallerySlick(GallerySliderSelector);
-
-
 
     const initModalOverlayOptions = {
         modalOverlaySelector: document.getElementsByClassName('modal-overlay')[0],
@@ -37,5 +34,46 @@ window.addEventListener('load', () => {
     };
 
     initModalOverlay(initModalOverlayOptions);
+
+    const initInformationModalOverlayOptions = {
+        informationModalButton: document.getElementById('lamp-button'),
+        informationModalOverlay: document.getElementById('modal-lamp'),
+        informationModalOverlayClose: document.getElementById('modal-close-lamp'),
+        informationModalCloseButton: document.getElementById('lamp-close-button'),
+        closeClass: 'information-modal-overlay-wrapper--closed'
+    };
+
+    initInformationModalOverlay(initInformationModalOverlayOptions);
+
+    const initContactsModalOverlayOptions = {
+        informationModalButton: document.getElementById('contacts-button'),
+        informationModalOverlay: document.getElementById('modal-contacts'),
+        informationModalOverlayClose: document.getElementById('modal-close-contacts'),
+        informationModalCloseButton: document.getElementById('contacts-close-button'),
+        closeClass: 'information-modal-overlay-wrapper--closed'
+    };
+
+    initInformationModalOverlay(initContactsModalOverlayOptions);
+
+    const initCommentsModalOverlayOptions = {
+        informationModalButton: document.getElementById('comments-button'),
+        informationModalOverlay: document.getElementById('modal-comments'),
+        informationModalOverlayClose: document.getElementById('modal-close-comments'),
+        informationModalCloseButton: document.getElementById('comments-close-button'),
+        closeClass: 'information-modal-overlay-wrapper--closed'
+    };
+
+    initInformationModalOverlay(initCommentsModalOverlayOptions);
+
+    const initGalleryModalOverlayOptions = {
+        informationModalButton: document.getElementById('gallery-button'),
+        informationModalOverlay: document.getElementById('modal-gallery'),
+        informationModalOverlayClose: document.getElementById('modal-close-gallery'),
+        informationModalCloseButton: document.getElementById('gallery-close-button'),
+        closeClass: 'information-modal-overlay-wrapper--closed'
+    };
+
+    initInformationModalOverlay(initGalleryModalOverlayOptions);
+
 });
 
