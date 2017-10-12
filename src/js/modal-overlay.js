@@ -3,6 +3,7 @@ import $ from 'jquery';
 import disableScroll from './disableScroll';
 import getImagesFromServer from '../js/getImagesFromServer';
 
+
 const getImagesFromServerOptions = {
     url: 'http://www.json-generator.com/api/json/get/bOhSbpbIde?indent=2',
     fragmentContianerSelector: document.querySelectorAll('.card__slider')[0],
@@ -20,7 +21,6 @@ const clearSliderImages = (sliderSelector) => {
 
 const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeButtonSelector, previewCardItemsSelector}) => {
     const previewCardItemsSelectorArr = Array.prototype.slice.call(previewCardItemsSelector);
-
 
 
     const showCard = () => {
