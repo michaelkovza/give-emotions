@@ -7,7 +7,7 @@
  */
 spl_autoload_register(function ($className) {
 	$className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-	$filePath = plugin_dir_path(__FILE__) . 'classes' . DIRECTORY_SEPARATOR . $className . '.php';
+	$filePath = plugin_dir_path(__FILE__) . 'lib' . DIRECTORY_SEPARATOR . $className . '.php';
 	if (file_exists($filePath)) {
 		require_once $filePath;
 	}
