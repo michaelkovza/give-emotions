@@ -1,0 +1,12 @@
+div.modal-overlay-form-wrapper.modal-overlay-form-wrapper--closed
+    form.modal-overlay-form-wrapper__form.form(name="form" action="form.json" method="POST")
+        fieldset.form__feedback
+            p.form__data-content.title Ваше ФИО
+            input.form__item(name="name" placeholder="Иванов Иван Иванович" type="text" required minlength="2")
+            p.form__data-content.title Адрес эл. почты
+            input.form__item(name="email" placeholder="example@gmail.com" type="email" required)
+            p.form__data-content.title Контактный телефон
+            input.form__item(name="phone" placeholder="+7 095 675 45 45" type="tel" required)
+            p.form__data-content.title Комментарий:
+            textarea.form__message
+            button.form__button.title оставить заявку
