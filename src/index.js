@@ -14,6 +14,8 @@ import initGallerySlick from './js/gallery-slider/gallery-slider';
 
 import initModalOverlay from './js/modal-overlay';
 import initInformationModalOverlay from './js/information-modal-overlay';
+import initForm from './js/initForm';
+import openForm from './js/openForm';
 
 
 window.addEventListener('load', () => {
@@ -75,5 +77,22 @@ window.addEventListener('load', () => {
 
     initInformationModalOverlay(initGalleryModalOverlayOptions);
 
+    const formValidationOptions = {
+        userDataSelector: $('.form'),
+        feedbackWrapperSelector: $('.form__feedback-status-wrapper'),
+        feedbackMessageSelector: $('.form__feedback-status'),
+        activeClassToShowMessage: 'form__feedback-status-wrapper--active'
+    };
+
+    initForm(formValidationOptions);
+
+    const openFormOptions = {
+        openFormItemSelector: document.getElementsByClassName('modal-contacts__button')[0],
+        formWrapperSelector: document.getElementsByClassName('modal-overlay-form-wrapper')[0],
+        closedClass: 'modal-overlay-form-wrapper--closed',
+        closeFormSelector: document.getElementsByClassName('modal-overlay-form-wrapper__modal-overlay')[0]
+    };
+
+    openForm(openFormOptions);
 });
 
