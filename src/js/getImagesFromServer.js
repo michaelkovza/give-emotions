@@ -2,34 +2,10 @@ import initCardSlick from '../js/card-slider/card-slider';
 import getCurrentImage from '../js/getCurrImage';
 
 
-/*
-const setLargeImageOptions = {
-    largeImageSelector: document.getElementsByClassName('card__large-image')[0],
-    previewCardItemsSelector: document.getElementsByClassName('gallery__item'),
-    modalOverlaySelector: document.getElementsByClassName('modal-overlay')[0]
+const setLargeImage = ({ firstImage , largeImageSelector}) => {
+
+    largeImageSelector.setAttribute('src', firstImage)
 };
-
-const setLargeImage = ( arrayOfImages ,{largeImageSelector, previewCardItemsSelector, modalOverlaySelector}) => {
-    console.log(previewCardItemsSelector);
-
-
-    const previewCardItemsSelectorArr = Array.prototype.slice.call(previewCardItemsSelector);
-
-    previewCardItemsSelectorArr.forEach((item) => {
-        item.addEventListener('click', () => {
-            console.log('click');
-            let firstArrayImage = arrayOfImages[0];
-            console.log(firstArrayImage);
-            largeImageSelector.setAttribute('src', '');
-            largeImageSelector.setAttribute('src', firstArrayImage);
-        })
-    });
-
-    modalOverlaySelector.addEventListener('click', () => {
-        largeImageSelector.setAttribute('src', '')
-    })
-};
-*/
 
 
 const getCurrentImageOptions = {
@@ -58,9 +34,15 @@ const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector
                 fragment.appendChild(fragmentItem);
             });
 
+
             fragmentContianerSelector.appendChild(fragment);
 
-         /*   setLargeImage(data[elementId], setLargeImageOptions);*/
+            const setLargeImageOptions = {
+                'firstImage': data[elementId][0],
+                'largeImageSelector': document.getElementsByClassName('card__large-image')[0]
+            };
+
+            setLargeImage(setLargeImageOptions);
 
             initCardSlick(cardSliderSelector);
 
