@@ -42,6 +42,40 @@ class GiveEmotionsProduct
 				'has_archive' => true,
 			)
 		);
+        register_post_type('slider',
+            array(
+                'labels' => array(
+                    'name' => __('Слайдер'),
+                    'singular_name' => __('Слайдер')
+                ),
+                'menu_position' => 5,
+                'public' => true,
+                'has_archive' => true,
+            )
+        );
+        register_post_type('gallery',
+            array(
+                'labels' => array(
+                    'name' => __('Галерея'),
+                    'singular_name' => __('Галерея')
+                ),
+                'menu_position' => 5,
+                'public' => true,
+                'has_archive' => true,
+            )
+        );
+        register_post_type('feedback',
+            array(
+                'labels' => array(
+                    'name' => __('Отзывы'),
+                    'singular_name' => __('Отзывы')
+                ),
+                'menu_position' => 5,
+                'public' => true,
+                'has_archive' => true,
+            )
+        );
+
 	}
 }
 

@@ -36,14 +36,10 @@ function getPostInfo()
 {
     $postID = $_POST['postId'];
     if ($postID) {
-        $queryOptions = [
-            'p' => $postID,
-        ];
-        $product = new GiveEmotionsProduct($queryOptions);
+        $product = new GiveEmotionsProduct();
 
         $result = [
-            'gallery' => $product->getGalleryImages(),
-            'productInfo' => $product->getProductInfo()
+            'productInfo' => $product->getProductInfoById($postID)
         ];
     } else {
         $result = ['error' => 'Can\'t find product with id ' . $postID];

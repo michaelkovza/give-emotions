@@ -10,6 +10,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/wp-content/themes/give-emotions/front/build/index.css" rel="stylesheet">
+    <title>InWhiteBox</title>
 	<?php wp_head(); ?>
 </head>
 <body>

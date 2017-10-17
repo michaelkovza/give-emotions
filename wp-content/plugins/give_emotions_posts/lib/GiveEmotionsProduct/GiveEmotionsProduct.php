@@ -8,58 +8,68 @@
 
 namespace GiveEmotionsProduct;
 
+/**
+ * Class GiveEmotionsProduct
+ * @package GiveEmotionsProduct
+ */
 class GiveEmotionsProduct
 {
+    /**
+     * @var string
+     */
+    private $postType = 'product';
 
     /**
-     * @var \WP_Post
+     * @param $id
+     *
+     * @return array|mixed|null
      */
-    private $post;
-    private $additionalFields;
-
-    /**
-     * @param array $args
-     */
-    public function __construct(array $args = [])
+    public function getProductInfoById($id)
     {
-        $args['post_type'] = 'product';
-        $query = new \WP_Query($args);
-        $this->post = new \WP_Post($query->post);
-        $this->additionalFields = get_field_objects($this->post->ID);
-    }
+        $args   = [
+            'p' => $id
+        ];
+        $result = $this->getProductsFromArgs($args);
+        if ( ! empty($result)) {
+            if (count($result) === 1) {
+                return $result;
+            }
 
-    public function __get($name)
-    {
-        return ($postValue = $this->getPostValue($name)) ? $postValue : $this->getCustomFieldValue($name);
-    }
-
-    private function getPostValue($name)
-    {
-        if ($name === 'title') {
-            return $this->post->post_title;
+            return array_pop($result);
         }
 
         return null;
     }
 
-    private function getCustomFieldValue($name)
+    /**
+     * @param array $args
+     *
+     * @return array
+     */
+    public function getProductsFromArgs(array $args = [])
     {
-        return isset($this->additionalFields->$name) ? $this->additionalFields->$name->value : null;
-    }
-
-    public function getGalleryImages()
-    {
-        return get_post_gallery_images($this->post->ID);
-    }
-
-    public function getProductInfo()
-    {
-        $info = [];
-        $info['productName'] = $this->getPostValue('title');
-        foreach ( $this->additionalFields as $field) {
-            $info[$field->name] = $field->value;
+        $args = array_merge($args, ['post_type' => $this->postType]);
+        $query = new \WP_Query();
+        $queriedPosts = $query->query($args);
+        if (empty($queriedPosts)) {
+            return null;
         }
+        $products = [];
+        /** @var $post \WP_Post */
+        foreach ($queriedPosts as $post) {
+            $products[$post->ID] = [
+                'title' => $post->post_title,
+            ];
 
-        return $info;
+            $additionalFields = get_field_objects($post->ID);
+            foreach ($additionalFields as $name => $valueObject) {
+                $products[$post->ID][$name] = $valueObject['value'];
+            }
+
+            $products[$post->ID]['gallery'] = get_post_gallery_images($post->ID);
+        }
+        wp_reset_postdata();
+
+        return $products;
     }
 }
