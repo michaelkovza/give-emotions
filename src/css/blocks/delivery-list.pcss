@@ -4,12 +4,22 @@
   justify-content: center;
 
   &__item {
-    width: 350px;
-    padding: 20px 50px;
+    width: 310px;
+    padding: 10px 0;
+
+    @media (--tablet-large) {
+      width: 350px;
+      padding: 20px 50px;
+    }
   }
 
   &__image-wrapper {
-    height: 128px;
+    display: none;
+
+    @media (--tablet-large) {
+      height: 128px;
+      display: block;
+    }
   }
 
   &__image {
@@ -44,7 +54,11 @@
 
   &__content {
     font-size: 1em;
-    text-align: center;
-    height: 154px;
+    text-align: left;
+
+    @media (--tablet-large) {
+      height: 154px;
+      text-align: center;
+    }
   }
 }

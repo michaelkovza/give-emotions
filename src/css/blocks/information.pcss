@@ -5,7 +5,11 @@
     font-size: 2.2em;
     text-align: center;
     text-transform: uppercase;
-    padding-bottom: 65px;
+    padding-bottom: 20px;
+
+    @media (--tablet-large) {
+      padding-bottom: 65px;
+    }
   }
 
   &__offer {
@@ -33,6 +37,16 @@
       right: 0;
       transform: translate(-50%, -50%);
       background: url('../../images/gallery/button-arrow.png') no-repeat center;
+    }
+  }
+
+  &__list {
+    width: 310px;
+    margin: 0 auto;
+
+    @media (--tablet-large) {
+      width: auto;
+      margin: 0;
     }
   }
 

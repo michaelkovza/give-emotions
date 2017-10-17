@@ -1,27 +1,38 @@
 @import '../../css/common/variables.pcss';
+@import '../../css/common/media.pcss';
+
 .lamp-slider {
   /* Arrows */
   & .slick-prev {
     position: absolute;
     top: 50%;
     display: block;
-    width: 38px;
-    height: 64px;
+    width: 18px;
+    height: 36px;
     padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
     cursor: pointer;
     background: url('../../images/lamp/arrow.png') center no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
     left: 25px;
     z-index: 5;
     outline: none;
     color: transparent;
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity 0.3s ease-in;
 
-    &:hover {
-      opacity: 1;
+    @media (--tablet-large) {
+      width: 38px;
+      height: 64px;
+      opacity: 0.5;
+
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -29,8 +40,8 @@
     position: absolute;
     top: 50%;
     display: block;
-    width: 38px;
-    height: 64px;
+    width: 18px;
+    height: 36px;
     outline: none;
     padding: 0;
     -webkit-transform: translate(0, -50%);
@@ -38,55 +49,74 @@
     transform: translate(0, -50%) rotate(180deg);
     cursor: pointer;
     background: url('../../images/lamp/arrow.png') center no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
     right: 25px;
     z-index: 5;
     color: transparent;
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity 0.3s ease-in;
 
-    &:hover {
-      opacity: 1;
+    @media (--tablet-large) {
+      width: 38px;
+      height: 64px;
+      opacity: 0.5;
+
+
+      &:hover {
+        opacity: 1;
+      }
     }
+
   }
 
   /* Dots */
 
   & .slick-dots {
     position: absolute;
-    bottom: 34px;
+    bottom: 14px;
     display: block;
     width: 100%;
     padding: 0;
     margin: 0;
-
     list-style: none;
-
     text-align: center;
+
+    @media (--tablet-large) {
+      bottom: 34px;
+    }
   }
 
   & .slick-dots li {
     position: relative;
-
     display: inline-block;
-
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin: 0 10px;
     padding: 0;
-
     cursor: pointer;
+
+    @media (--tablet-large) {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   & .slick-dots li button {
     font-size: 0;
     line-height: 0;
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     padding: 5px;
     color: transparent;
     border-radius: 50%;
     background: var(--border-color);
+
+    @media (--tablet-large) {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   & .slick-dots li button:hover,
@@ -105,12 +135,17 @@
     top: 50%;
     left: 6px;
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 8px;
+    height: 8px;
     content: '';
     background: var(--unactive-dots);
     border-radius: 50%;
     transform: translate(0, -50%);
+
+    @media (--tablet-large) {
+      width: 18px;
+      height: 18px;
+    }
 
   }
 
@@ -118,4 +153,5 @@
     opacity: 1;
     background: var(--button-active-color);
   }
+
 }
