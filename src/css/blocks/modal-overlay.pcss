@@ -7,16 +7,26 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 
-
   &--closed {
     display: none;
   }
 
   &__modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+
+    @media (--tablet-large) {
+      height: auto;
+      overflow-y: initial;
+      overflow-x: initial;
+      width: auto;
+    }
   }
 }
 
