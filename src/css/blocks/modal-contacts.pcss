@@ -1,103 +1,168 @@
 .modal-contacts {
 
-  position: relative;
-
-  &__title {
-    text-align: center;
-    padding-bottom: 40px;
-    font-size: 2.2em;
-    text-transform: uppercase;
-  }
-
-  &__close-button {
-    position: absolute;
-    top: 38px;
-    right: 38px;
-    z-index: 10;
-    display: block;
-    height: 38px;
-    width: 38px;
-    background: url('../../images/card/close.png') no-repeat center;
-    padding: 0;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-  }
-
-  &__item {
-    padding: 0 25px;
-    width: 449px;
-
-    &--width {
-      width: 520px;
-    }
-
-    &--margin-left {
-      margin-left: 40px;
-    }
-  }
-
-  &__address {
-    font-style: normal;
-    padding-top: 45px;
-  }
-
-  &__phone {
-    margin: 25px 0;
-  }
-
-  &__link {
-    display: block;
-  }
-
-  &__information {
-    font-size: 1.6em;
-  }
-
-  &__offer-wrapper {
-    width: 580px;
-    margin: 0 auto;
-    padding-top: 40px;
-  }
-
-  &__offer {
-    font-size: 20px;
-    padding-bottom: 5px;
-  }
-
-  &__button {
-    width: 100%;
-    height: 52px;
-    color: var(--button-text-color);
-    text-transform: uppercase;
-    background: var(--button-color);
     position: relative;
-    text-align: left;
-    padding: 0 37px;
-    transition: background 0.3s ease-in;
 
-    &:hover {
-      background: var(--button-active-color);
+    &__title {
+        text-align: left;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+
+        @media (--desktop-small) {
+            text-align: center;
+            padding-bottom: 40px;
+            font-size: 2.2em;
+        }
     }
 
-    &:after {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 22px;
-      position: absolute;
-      top: 16px;
-      right: 19px;
-      background: url('../../images/gallery/button-arrow.png') no-repeat center;
+    &__close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        display: block;
+        height: 38px;
+        width: 38px;
+        background: url('../../images/card/close.png') no-repeat center;
+        padding: 0;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        @media (--desktop-small) {
+            top: 38px;
+            right: 38px;
+        }
     }
-  }
+
+    &__map-wrapper {
+        max-width: 320px;
+        height: 320px;
+        margin: 0 auto;
+
+        @media (--desktop-small) {
+            width: 449px;
+            height: 449px;
+            margin: 0;
+        }
+    }
+
+    &__map {
+        width: 100%;
+        height: auto;
+    }
+
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+
+        @media (--desktop-small) {
+            flex-flow: row nowrap;
+        }
+    }
+
+    &__item {
+
+        &--width {
+            width: 320px;
+            margin: 0 auto;
+        }
+
+        @media (--desktop-small) {
+            padding: 0 25px;
+            width: 449px;
+            &--width {
+                width: 520px;
+            }
+
+            &--margin-left {
+                margin-left: 40px;
+            }
+        }
+
+    }
+
+    &__address {
+        font-style: normal;
+        padding-top: 5px;
+
+        @media (--desktop-small) {
+            padding-top: 45px;
+        }
+    }
+
+    &__phone {
+        margin: 10px 0;
+
+        @media (--desktop-small) {
+            margin: 25px 0;
+        }
+    }
+
+    &__link {
+        display: block;
+    }
+
+    &__information {
+
+        @media (--desktop-small) {
+            font-size: 1.6em;
+        }
+
+    }
+
+    &__offer-wrapper {
+        max-width: 320px;
+        margin: 0 auto;
+        padding-top: 20px;
+
+        @media (--desktop-small) {
+            max-width: initial;
+            width: 580px;
+            padding-top: 40px;
+        }
+    }
+
+    &__offer {
+        font-size: 20px;
+        padding-bottom: 5px;
+    }
+
+    &__button {
+        width: 100%;
+        height: 52px;
+        color: var(--button-text-color);
+        text-transform: uppercase;
+        background: var(--button-color);
+        position: relative;
+        text-align: left;
+        padding: 0 15px;
+        transition: background 0.3s ease-in;
+        margin-bottom: 25px;
+        font-size: 0.9em;
+
+        @media (--desktop-small) {
+            padding:  0 37px;
+            margin-bottom: 0;
+            font-size: inherit;
+        }
+
+        &:hover {
+            background: var(--button-active-color);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 22px;
+            position: absolute;
+            top: 16px;
+            right: 19px;
+            background: url('../../images/gallery/button-arrow.png') no-repeat center;
+        }
+    }
 }

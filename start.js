@@ -3,7 +3,7 @@ const WebpackDevServer = require('webpack-dev-server');
 
 const webpackConfig = require('./webpack.config.js');
 
-const frontendServerHost = '192.168.0.103';
+const frontendServerHost = '172.16.1.72';
 const frontendServerPort = 8080;
 
 webpackConfig.entry.index.unshift('webpack/hot/only-dev-server');

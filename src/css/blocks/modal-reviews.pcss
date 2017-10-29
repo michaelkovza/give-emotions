@@ -1,71 +1,95 @@
 .modal-reviews {
-  position: relative;
+    position: relative;
 
+    &__title {
+        text-align: left;
+        padding-bottom: 10px;
+        text-transform: uppercase;
 
-
-  &__title {
-    text-align: center;
-    padding-bottom: 40px;
-    font-size: 2.2em;
-    text-transform: uppercase;
-  }
-
-  &__close-button {
-    position: absolute;
-    right: 38px;
-    top: 38px;
-    z-index: 10;
-    display: block;
-    height: 38px;
-    width: 38px;
-    background: url('../../images/card/close.png') no-repeat center;
-    padding: 0;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-
-    &:hover {
-      opacity: 1;
+        @media (--desktop-small) {
+            text-align: center;
+            padding-bottom: 40px;
+            font-size: 2.2em;
+        }
     }
-  }
 
-  &__slider {
-    padding-bottom: 65px;
-  }
+    &__close-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 10;
+        display: block;
+        height: 38px;
+        width: 38px;
+        background: url('../../images/card/close.png') no-repeat center;
+        padding: 0;
+        opacity: 0.6;
+        transition: opacity 0.3s;
 
-  &__card {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    padding-bottom: 25px;
+        @media (--desktop-small) {
+            right: 38px;
+            top: 38px;
+        }
 
-    &--order {
-      .modal-reviews__image {
-        order: 2;
-      }
-
-      .modal-reviews__content-wrapper {
-        text-align: right;
-      }
+        &:hover {
+            opacity: 1;
+        }
     }
-  }
 
-  &__image {
-    width: 182px;
-    height: 182px;
-  }
+    &__slider {
+        padding-bottom: 65px;
+    }
 
-  &__content-wrapper {
-    width: 730px;
-    margin: 0 43px;
-    padding: 10px 0;
-  }
+    &__card {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        padding-bottom: 25px;
 
-  &__content {
-    color: var(--color-accent);
-    padding-bottom: 35px;
-  }
+        &--order {
+            .modal-reviews__image {
+                order: 2;
+            }
 
-  &__name {
-    font-size: 1.5em;
-  }
+            .modal-reviews__content-wrapper {
+                text-align: right;
+            }
+        }
+    }
+
+    &__image {
+        width: 92px;
+        height: 92px;
+        object-fit: cover;
+
+        @media (--desktop-small) {
+            width: 182px;
+            height: 182px;
+        }
+    }
+
+    &__content-wrapper {
+        margin: 0 10px;
+        padding: 10px 0;
+
+        @media (--desktop-small) {
+            width: 730px;
+            margin: 0 43px;
+        }
+    }
+
+    &__content {
+        color: var(--color-accent);
+        padding-bottom: 15px;
+        font-size: 0.9em;
+
+        @media (--desktop-small) {
+            padding-bottom: 35px;
+            font-size: inherit;
+        }
+    }
+
+    &__name {
+        font-size: 1.5em;
+    }
 }

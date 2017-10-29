@@ -1,3 +1,4 @@
+import fetch from "isomorphic-fetch";
 import initCardSlick from '../js/card-slider/card-slider';
 import getCurrentImage from '../js/getCurrImage';
 
@@ -14,6 +15,7 @@ const getCurrentImageOptions = {
 };
 
 const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector}, elementId) => {
+  console.log(elementId);
     fetch(url, {
         method: 'POST',
         body: elementId
