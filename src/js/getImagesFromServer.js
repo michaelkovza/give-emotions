@@ -18,7 +18,10 @@ const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector
     console.log(elementId);
     fetch(url, {
             method: 'POST',
-            body: elementId
+            body:  {
+                action:'get_post_info',
+                postId: elementId
+            }
         },
         {'mode': 'no-cors'},
     )
