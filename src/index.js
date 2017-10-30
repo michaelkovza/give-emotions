@@ -17,9 +17,13 @@ import initInformationModalOverlay from './js/information-modal-overlay';
 import initForm from './js/initForm';
 import openForm from './js/openForm';
 import loadMap from './js/loadMap';
+import fixedHeaderOnScroll from './js/fixedMenuOnScroll';
 
 
 window.addEventListener('load', () => {
+    fixedHeaderOnScroll();
+
+
     const LampSliderSelector = $('.lamp-slider');
     initLampSlick(LampSliderSelector);
 

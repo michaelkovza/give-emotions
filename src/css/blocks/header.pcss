@@ -1,28 +1,50 @@
 .header {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-around;
+
+  @media (--desktop-small) {
+        flex-flow: row nowrap;
+  }
 
 
   &__white-box {
-    width: 148px;
-    height: 135px;
-    align-self: center;
+  width: 105px;
+  align-self: center;
+
+  @media (--desktop-small) {
+        width: 148px;
+        height: 135px;
+    }
   }
 
   &__give-emotions {
-    width: 417px;
+    width: 235px;
     align-self: center;
+
+    @media (--desktop-small) {
+        width: 417px;
+    }
   }
 
   &__content {
-    width: 350px;
+    font-size: 0.8em;
     text-align: center;
     align-self: center;
+
+    @media (--desktop-small) {
+        width: 350px;
+        font-size: initial;
+    }
   }
 
   &__contacts {
-    width: 200px;
+    font-size: 0.8em;
     align-self: center;
+
+    @media (--desktop-small) {
+        width: 200px;
+        font-size: initial;
+    }
   }
 }

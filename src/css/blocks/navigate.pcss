@@ -1,5 +1,10 @@
 .navigate {
   padding: 25px 0;
+  overflow-y: scroll;
+
+  @media (--desktop-small) {
+    overflow: none;
+  }
 
   &__list {
     display: flex;
