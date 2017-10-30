@@ -25,6 +25,8 @@ const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector
         .then(res => res.json())
         .then(data => {
 
+            console.log(data,'datadatadata');
+
             console.log(data[elementId]);
 
 
