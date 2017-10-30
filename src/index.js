@@ -24,8 +24,8 @@ window.addEventListener('load', () => {
     fixedHeaderOnScroll();
 
 
-    const LampSliderSelector = $('.lamp-slider');
-    initLampSlick(LampSliderSelector);
+    /*const LampSliderSelector = $('.lamp-slider');
+    initLampSlick(LampSliderSelector);*/
 
     /*const ReviewsSliderSelector = $('.modal-reviews-slider');
     initReviewsSlick(ReviewsSliderSelector);
