@@ -10,7 +10,7 @@ const defaultOptions = {
 };
 
 const initGallerySlick = (selector, options = defaultOptions) => {
-    selector.not('.slick-initialized').slick(options);
+    selector.slick(options);
 };
 
 export default initGallerySlick;

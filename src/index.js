@@ -30,8 +30,8 @@ window.addEventListener('load', () => {
     const ReviewsSliderSelector = $('.modal-reviews-slider');
     initReviewsSlick(ReviewsSliderSelector);
 
-    const GallerySliderSelector = $('.modal-gallery-slider');
-    initGallerySlick(GallerySliderSelector);
+    /*const GallerySliderSelector = $('.modal-gallery-slider');
+    initGallerySlick(GallerySliderSelector);*/
 
     const initModalOverlayOptions = {
         modalOverlaySelector: document.getElementsByClassName('modal-overlay')[0],
