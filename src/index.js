@@ -27,9 +27,9 @@ window.addEventListener('load', () => {
     const LampSliderSelector = $('.lamp-slider');
     initLampSlick(LampSliderSelector);
 
-    const ReviewsSliderSelector = $('.modal-reviews-slider');
+    /*const ReviewsSliderSelector = $('.modal-reviews-slider');
     initReviewsSlick(ReviewsSliderSelector);
-
+*/
     /*const GallerySliderSelector = $('.modal-gallery-slider');
     initGallerySlick(GallerySliderSelector);*/
 
