@@ -24,14 +24,13 @@ window.addEventListener('load', () => {
     fixedHeaderOnScroll();
 
 
-    /*const LampSliderSelector = $('.lamp-slider');
-    initLampSlick(LampSliderSelector);*/
+    const LampSliderSelector = $('.lamp-slider');
+    initLampSlick(LampSliderSelector);
 
-    /*const ReviewsSliderSelector = $('.modal-reviews-slider');
+    const ReviewsSliderSelector = $('.modal-reviews-slider');
     initReviewsSlick(ReviewsSliderSelector);
-*/
-    /*const GallerySliderSelector = $('.modal-gallery-slider');
-    initGallerySlick(GallerySliderSelector);*/
+    const GallerySliderSelector = $('.modal-gallery-slider');
+    initGallerySlick(GallerySliderSelector);
 
     const initModalOverlayOptions = {
         modalOverlaySelector: document.getElementsByClassName('modal-overlay')[0],

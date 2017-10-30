@@ -10,7 +10,7 @@ const defaultOptions = {
 };
 
 const initLampSlick = (selector, options = defaultOptions) => {
-    selector.slick(options);
+    selector.not('.slick-initialized').slick(options);
 };
 
 export default initLampSlick;
