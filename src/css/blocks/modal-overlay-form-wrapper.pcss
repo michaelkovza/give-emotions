@@ -26,12 +26,15 @@
     box-sizing: border-box;
 
 
+    @media (--desktop-small) {
+
     &:before {
       content: '';
       display: inline-block;
       height: 100%;
       vertical-align: middle;
 
+    }
     }
   }
 
@@ -43,7 +46,11 @@
     text-align: left;
     background: var(--color-content);
     z-index: 100;
-    width: 430px;
+    width: 100%;
+
+    @media (--tablet-small) {
+        width: 430px;
+    }
   }
 
 }

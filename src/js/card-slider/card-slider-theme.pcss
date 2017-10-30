@@ -1,6 +1,15 @@
+@import '../../css/common/media.pcss';
+
 .card-slider {
+
   /* Arrows */
   & .slick-prev {
+  display: none !important;
+  visibility: hidden;
+
+  @media (--tablet-small) {
+    visibility: visible;
+    display: block !important;
     position: absolute;
     top: 50%;
     display: block;
@@ -23,8 +32,15 @@
       opacity: 1;
     }
   }
+  }
 
   & .slick-next {
+    display: none !important;
+    visibility: hidden;
+
+    @media (--tablet-small){
+    visibility: visible;
+    display:block !important;
     position: absolute;
     top: 50%;
     display: block;
@@ -46,5 +62,6 @@
     &:hover {
       opacity: 1;
     }
+  }
   }
 }

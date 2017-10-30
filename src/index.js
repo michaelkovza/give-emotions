@@ -16,6 +16,7 @@ import initModalOverlay from './js/modal-overlay';
 import initInformationModalOverlay from './js/information-modal-overlay';
 import initForm from './js/initForm';
 import openForm from './js/openForm';
+import loadMap from './js/loadMap';
 
 
 window.addEventListener('load', () => {
@@ -94,5 +95,10 @@ window.addEventListener('load', () => {
     };
 
     openForm(openFormOptions);
+
+
+    const YmapSelector = document.getElementById('Ymap');
+    loadMap(YmapSelector);
+
 });
 

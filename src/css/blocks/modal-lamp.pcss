@@ -30,7 +30,13 @@
     width: 280px;
 
     &--width {
-      width: 470px;
+      width: 320px;
+      margin: 0 auto;
+
+      @media (--desktop-small) {
+        width: 470px;
+        margin: 0;
+      }
     }
 
     &--hidden-on-mobile {
@@ -159,6 +165,11 @@
     position: relative;
     color: var(--color-information-text);
     text-transform: uppercase;
+    margin-bottom: 25px;
+
+    @media (--tablet-large) {
+        margin-bottom: 0;
+    }
 
     &:after {
       content: '';
