@@ -3,7 +3,7 @@ import initCardSlick from '../js/card-slider/card-slider';
 import getCurrentImage from '../js/getCurrImage';
 
 
-const setLargeImage = ({ firstImage , largeImageSelector}) => {
+const setLargeImage = ({firstImage, largeImageSelector}) => {
 
     largeImageSelector.setAttribute('src', firstImage)
 };
@@ -15,11 +15,13 @@ const getCurrentImageOptions = {
 };
 
 const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector}, elementId) => {
-  console.log(elementId);
+    console.log(elementId);
     fetch(url, {
-        method: 'POST',
-        body: elementId
-    })
+            method: 'POST',
+            body: elementId
+        },
+        {'mode': 'no-cors'},
+    )
         .then(res => res.json())
         .then(data => {
 

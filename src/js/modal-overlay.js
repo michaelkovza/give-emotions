@@ -5,7 +5,7 @@ import getImagesFromServer from '../js/getImagesFromServer';
 
 
 const getImagesFromServerOptions = {
-    url: 'http://www.json-generator.com/api/json/get/bOhSbpbIde?indent=2',
+    url: 'http://9993626000.myjino.ru/wp-admin/admin-ajax.php',
     fragmentContianerSelector: document.querySelectorAll('.card__slider')[0],
     cardSliderSelector: $('.card-slider')
 };
