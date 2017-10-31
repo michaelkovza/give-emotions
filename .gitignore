@@ -1,7 +1,7 @@
 #игнорим все
-/
+/*
 #кроме
-!/wp-content/themes/give-emotions/
-!/wp-content/plugins/give_emotions_posts/
+!/wp-content/themes/give-emotions/*
+!/wp-content/plugins/give_emotions_posts/*
 !/.gitignore
 !/wp-config-sample.php
