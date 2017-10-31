@@ -14,17 +14,15 @@ const getCurrentImageOptions = {
     smallImagesSelector: document.getElementsByClassName('card__small-image')
 };
 
-const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector}, elementId) => {
+const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, elementId) => {
     console.log(elementId);
-    fetch(url, {
-            method: 'POST',
-            body:  {
-                action:'get_post_info',
-                postId: elementId
-            }
+    fetch(`http://9993626000.myjino.ru/wp-admin/admin-ajax.php?postId=${elementId}&action=get_post_info`, {
+            method: 'POST'
         },
             {'mode': 'no-cors'}
          )
+
+
           .then(console.log(res))
        /* .then(res => res.json())
         .then(data => {
