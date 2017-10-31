@@ -18,16 +18,13 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
     console.log(elementId);
     fetch(`http://9993626000.myjino.ru/wp-admin/admin-ajax.php?postId=${elementId}&action=get_post_info`, {
             method: 'POST'
-        },
-            {'mode': 'no-cors'}
-         )
+        }
+    )
 
         .then(res => res.json())
         .then(data => {
 
-            console.log(data,'datadatadata');
-
-            console.log(data[`productinfo`][elementId])
+            console.log(`${data}.data.productinfo.${elementId}`)
 
 
            /* let fragment = document.createDocumentFragment();
