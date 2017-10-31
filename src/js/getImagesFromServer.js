@@ -27,10 +27,10 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
 
             console.log(data,'datadatadata');
 
-            /*console.log(data[elementId]);
+            console.log(data[elementId])
 
 
-            let fragment = document.createDocumentFragment();
+           /* let fragment = document.createDocumentFragment();
 
             data[elementId].forEach((currImage) => {
                 let fragmentItem = document.createElement('img');
@@ -52,8 +52,8 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
 
             initCardSlick(cardSliderSelector);
 
-            getCurrentImage(getCurrentImageOptions);*/
-        })
+            getCurrentImage(getCurrentImageOptions);*!/
+        })*/
 };
 
 
