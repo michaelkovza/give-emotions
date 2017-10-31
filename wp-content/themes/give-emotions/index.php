@@ -19,24 +19,34 @@ get_header();?>
     <div class="wrapper">
         <div class="wrapper__content">
             <header class="header">
-                <img class="header__white-box" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/white-box.png" alt="white box image">
-                <img class="header__give-emotions" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/give-emotions.png" alt="give emotions image">
-                <div class="header__content header-content">
+                <img class="header__white-box"
+                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/white-box.png"
+                     alt="white box image">
+                <img class="header__give-emotions"
+                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/give-emotions.png"
+                     alt="give emotions image">
+                <div class="header__content header-content content">
                     <p class="header-content__text header-content__text--accent">ОРИГИНАЛЬНЫЙ СВЕТИЛЬНИК-НОЧНИК ОТ&nbsp;ПРОИЗВОДИТЕЛЯ</p>
                     <p class="header-content__text">ДОСТАВКА ПО&nbsp;ВСЕЙ РОССИИ</p>
                 </div>
                 <div class="header__contacts header-contacts">
-                    <ul class="header-contacts__list">
+                    <ul class="header-contacts__list content">
                         <li class="header-contacts__item">+8 (999) 362-6000</li>
                         <li class="header-contacts__item header-contacts__links-wrapper">
                             <a class="header-contacts__link" href="#" title="Viber">
-                                <img class="header-contacts__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/viber.svg" alt="viber logo">
+                                <img class="header-contacts__image"
+                                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/viber.svg"
+                                     alt="viber logo">
                             </a>
                             <a class="header-contacts__link" href="#" title="Telegram">
-                                <img class="header-contacts__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/telegram.svg" alt="telegram logo">
+                                <img class="header-contacts__image"
+                                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/telegram.svg"
+                                     alt="telegram logo">
                             </a>
                             <a class="header-contacts__link" href="#" title="Whatsapp">
-                                <img class="header-contacts__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/whatsapp.svg" alt="whatsapp logo">
+                                <img class="header-contacts__image"
+                                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/whatsapp.svg"
+                                     alt="whatsapp logo">
                             </a>
                         </li>
                         <li class="header-contacts__item header-contacts__item--border-bottom">24&nbsp;часа</li>
@@ -70,34 +80,43 @@ get_header();?>
         </div>
     </div>
     <div class="wrapper">
-        <?php
-        $sliderImages = $slider->getSliderImages();
-        foreach($sliderImages as $sliderImage):?>
-            <div class="lamp__slider-item lamp-slider__item">
-                <img class="lamp__image lamp-slider__image" src="<?= $sliderImage?>" alt="">
+        <div class="wrapper__content wrapper__content--vertical-padding">
+            <div class="lamp">
+                <div class="lamp__slider lamp-slider">
+                    <?php
+                    $sliderImages = $slider->getSliderImages();
+                    foreach ($sliderImages as $sliderImage):?>
+                        <div class="lamp__slider-item lamp-slider__item">
+                            <img class="lamp__image lamp-slider__image" src="<?= $sliderImage ?>" alt="">
+                        </div>
+                        <?php
+                    endforeach; ?>
+                </div>
             </div>
-            <?php
-        endforeach;?>
+        </div>
     </div>
     <div class="wrapper">
         <div class="wrapper__content wrapper__content--galery-width">
             <div class="gallery">
                 <ul class="gallery__list">
-                <?php
-                $allProducts = $products->getProductsFromArgs();
-                foreach ($allProducts as $product):?>
-                    <li class="gallery__item" id="<?php the_ID()?>">
-                        <div class="gallery__image-wrapper">
-                            <img class="gallery__image" src="<?= $product['main_image']?>" alt="Forest Spirit Image">
-                        </div>
-                        <article class="gallery__description">
-                            <h1 class="gallery__title title"><?= $product['title']?></h1>
-                            <p class="gallery__price title"><?= $product['price']?><span class="gallery__currency">&nbsp;руб</span>
-                            </p>
-                        </article>
-                        <button class="gallery__button title">просмотр</button>
-                    </li>
-                <?php endforeach; ?>
+                    <?php
+                    $allProducts = $products->getProductsFromArgs();
+                    foreach ($allProducts as $product):?>
+                        <li class="gallery__item" id="<?php the_ID() ?>">
+                            <div class="gallery__image-wrapper">
+                                <img class="gallery__image" src="<?= $product['main_image'] ?>"
+                                     alt="Forest Spirit Image">
+                                <img class="gallery__image gallery__image--hover"
+                                     src="https://pp.userapi.com/c543101/v543101489/32251/uob2cyjZG5A.jpg">
+                            </div>
+                            <article class="gallery__description">
+                                <h1 class="gallery__title title"><?= $product['title'] ?></h1>
+                                <p class="gallery__price title"><?= $product['price'] ?><span class="gallery__currency">&nbsp;руб</span>
+                                </p>
+                            </article>
+                            <button class="gallery__button title">просмотр</button>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -109,7 +128,8 @@ get_header();?>
                 <ul class="delivery__list delivery-list">
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--curriculum" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/curriculum.svg"
+                            <img class="delivery-list__image delivery-list__image--curriculum"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/curriculum.svg"
                                  alt="curriculum image">
                         </div>
                         <p class="delivery-list__content content">Оставляете заявку на&nbsp;нашем сайте. Наш менеджер
@@ -117,16 +137,19 @@ get_header();?>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--curriculum" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/wallet.svg"
+                            <img class="delivery-list__image delivery-list__image--curriculum"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/wallet.svg"
                                  alt="wallet image">
                         </div>
-                        <p class="delivery-list__content content">Оплатить заказ возможно через такие платежные сервисы как:
+                        <p class="delivery-list__content content">Оплатить заказ возможно через такие платежные сервисы
+                            как:
                             &laquo;Сбербанк Онлайн&raquo;, Qiwi, Яндекс деньги, наложенным платежом (при получении
                             товара).</p>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--dropbox" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/dropbox-logo.svg"
+                            <img class="delivery-list__image delivery-list__image--dropbox"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/dropbox-logo.svg"
                                  alt="dropbox image">
                         </div>
                         <p class="delivery-list__content content">Светильник надежно упаковывается в&nbsp;пенопласт и&nbsp;гофрированный
@@ -135,16 +158,20 @@ get_header();?>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
                             <img class="delivery-list__image delivery-list__image--fast-delivery"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/fast-delivery.svg" alt="fast-delivery image">
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/fast-delivery.svg"
+                                 alt="fast-delivery image">
                         </div>
-                        <p class="delivery-list__content content">Заказы отправляем службами доставки: СДЭК, ПЭК, Деловые
+                        <p class="delivery-list__content content">Заказы отправляем службами доставки: СДЭК, ПЭК,
+                            Деловые
                             Линии, &laquo;Байкал Сервис&raquo; или &laquo;Почта России&raquo; по&nbsp;пожеланию клиента.
-                            Доставка до&nbsp;пункта самовывоза, обычно, не&nbsp;превышает 300&nbsp;руб. Рассчитать точную
+                            Доставка до&nbsp;пункта самовывоза, обычно, не&nbsp;превышает 300&nbsp;руб. Рассчитать
+                            точную
                             сумму доставки вам помогут наши операторы.</p>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--earth" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/earth.svg"
+                            <img class="delivery-list__image delivery-list__image--earth"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/earth.svg"
                                  alt="earth image">
                         </div>
                         <p class="delivery-list__content content">Мы&nbsp;работаем&nbsp;По всей территории России, а&nbsp;так&nbsp;же
@@ -161,28 +188,36 @@ get_header();?>
                 <ul class="information__list information-list">
                     <li class="information-list__item information-list__item--lamp" id="lamp-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/stars.svg" alt="stars image">
+                            <img class="information-list__image"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/stars.svg"
+                                 alt="stars image">
                         </div>
                         <h2 class="information-list__title title">Светильник-ночник</h2>
                         <button class="information-list__button title">Узнать подробности</button>
                     </li>
                     <li class="information-list__item information-list__item--contacts" id="contacts-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/world.svg" alt="world image">
+                            <img class="information-list__image"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/world.svg"
+                                 alt="world image">
                         </div>
                         <h2 class="information-list__title title">Контакты</h2>
                         <button class="information-list__button title">Узнать подробности</button>
                     </li>
                     <li class="information-list__item information-list__item--comments" id="comments-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/conversation.svg" alt="conversation image">
+                            <img class="information-list__image"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/conversation.svg"
+                                 alt="conversation image">
                         </div>
                         <h2 class="information-list__title title">Отзывы</h2>
                         <button class="information-list__button title">Узнать подробности</button>
                     </li>
                     <li class="information-list__item information-list__item--gallery" id="gallery-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/gallery.svg" alt="gallery image">
+                            <img class="information-list__image"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/gallery.svg"
+                                 alt="gallery image">
                         </div>
                         <h2 class="information-list__title title">Галерея</h2>
                         <button class="information-list__button title">Узнать подробности</button>
@@ -224,7 +259,9 @@ get_header();?>
                 <ul class="footer__list">
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="instagram">
-                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/inst-wb.svg" alt="instagram">
+                            <img class="footer__image"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/inst-wb.svg"
+                                 alt="instagram">
                         </a>
                     </li>
                     <li class="footer__item">
@@ -236,7 +273,8 @@ get_header();?>
                     </li>
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="vk">
-                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/vk-wb.svg" alt="vk">
+                            <img class="footer__image"
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/vk-wb.svg" alt="vk">
                         </a>
                     </li>
                 </ul>
@@ -245,8 +283,10 @@ get_header();?>
     </div>
     <div class="wrapper wrapper--colontitle">
         <div class="wrapper__content">
-            <p class="colontitle">
-                Created with &#10084; by&nbsp;<a class="colontitle__link" href="https://vk.com/prettyboyheaven" title="https://vk.com/prettyboyheaven" target="_blank">Prettyboyheaven</a>
+            <p class="colontitle">Created with &#10084; by&nbsp;<a class="colontitle__link"
+                                                                   href="https://vk.com/prettyboyheaven"
+                                                                   title="https://vk.com/prettyboyheaven"
+                                                                   target="_blank">Prettyboyheaven</a>
             </p>
         </div>
     </div>
@@ -255,9 +295,19 @@ get_header();?>
             <div class="modal__card card">
                 <ul class="card__list">
                     <li class="card__item card__item--width card__item--margin-right">
-                        <img class="card__large-image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/house.png" alt="house image">
+                        <img class="card__large-image"
+                             src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/house.png"
+                             alt="house image">
                         <div class="card__slider card-slider">
-
+                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/house.png') alt="house image")-->
+                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src="https://pp.userapi.com/c638930/v638930863/2f3c3/QzK21uys4v8.jpg" alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src="https://pp.userapi.com/c624222/v624222330/4e2e9/zfd2ikyO_NY.jpg" alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
+                            <!--img.card__small-image.card-slider__item(src="https://pp.userapi.com/c638930/v638930330/2cecb/_A3gm4Vx86I.jpg" alt="forest-spirit image")-->
                         </div>
                     </li>
                     <li class="card__item card__item--relative">
@@ -266,6 +316,10 @@ get_header();?>
                         <article class="card__article">
                             <h1 class="card__title main-title">светитльник</h1>
                             <p class="card__subtitle content">такой-то такой</p>
+                            <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
+                                студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
+                            <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
+                                студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
                             <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
                                 студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
                             <p class="card__price title">1800<span class="card__currency">&nbsp;руб</span>
@@ -285,23 +339,35 @@ get_header();?>
                 <div class="modal-lamp__content-wrapper">
                     <button class="modal-lamp__close-button" id="lamp-close-button">
                     </button>
-                    <div class="modal-lamp__content">
-                        <p class="modal-lamp__description modal-lamp__description--crooked-line-to-bottom content">Гарантия
+                    <div class="modal-lamp__content modal-lamp__content--hidden-on-mobile">
+                        <p class="modal-lamp__description modal-lamp__description--crooked-line-to-bottom content">
+                            Гарантия
                             на&nbsp;электрику 12&nbsp;мес.</p>
-                        <p class="modal-lamp__description content modal-lamp__description--straight-line">Минималистичный
+                        <p class="modal-lamp__description content modal-lamp__description--straight-line">
+                            Минималистичный
                             дизайн</p>
                         <p class="modal-lamp__description content modal-lamp__description--crooked-line-to-top">Мягкое,
                             теплое свечение</p>
                     </div>
                     <div class="modal-lamp__content modal-lamp__content--width">
                         <h1 class="modal-lamp__title title">светильник&nbsp;&mdash; ночник</h1>
-                        <img class="modal-lamp__image" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/modal-lamp-image.png" alt="modal-lamp image">
+                        <img class="modal-lamp__image"
+                             src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/modal-lamp-image.png"
+                             alt="modal-lamp image">
+                        <ul class="modal-lamp__list">
+                            <li class="modal-lamp__item content">Гарантия на&nbsp;электрику 12&nbsp;мес.</li>
+                            <li class="modal-lamp__item content">Минималистичный дизайн</li>
+                            <li class="modal-lamp__item content">Мягкое, теплое свечение</li>
+                            <li class="modal-lamp__item content">Светодиодная подсветка, минимальное потребление энергии
+                            </li>
+                            <li class="modal-lamp__item content">Настоящее фабричное качество</li>
+                        </ul>
                         <p class="modal-lamp__offer title">Закажи прямо сейчас!</p>
                         <a class="modal-lamp__link title" href="#" title="Купить">
                             <span class="modal-lamp__link-content">Купить</span>
                         </a>
                     </div>
-                    <div class="modal-lamp__content">
+                    <div class="modal-lamp__content modal-lamp__content--hidden-on-mobile">
                         <p class="modal-lamp__description modal-lamp__description--padding-top modal-lamp__description--crooked-right-line modal-lamp__description--crooked-right-line-position content">
                             Светодиодная подсветка, минимальное потребление энергии</p>
                         <p class="modal-lamp__description modal-lamp__description--crooked-right-line content">Настоящее
@@ -320,12 +386,12 @@ get_header();?>
                 </button>
                 <ul class="modal-contacts__list">
                     <li class="modal-contacts__item">
-                        <div class="modal-contacts__map-wrapper">
-                            <img class="modal-contacts__map" src="<?= get_stylesheet_directory_uri() . '/front/build/'?>images/map.png" alt="map image">
+                        <div class="modal-contacts__map-wrapper" id="Ymap">
                         </div>
                     </li>
                     <li class="modal-contacts__item modal-contacts__item--margin-left modal-contacts__item--width">
-                        <address class="modal-contacts__address modal-contacts__information title">ул. Космос 24а</address>
+                        <address class="modal-contacts__address modal-contacts__information title">ул. Космос 24а
+                        </address>
                         <a class="modal-contacts__phone modal-contacts__link modal-contacts__information title"
                            href="tel:88006409005">+8 (800) 640-90-05</a>
                         <a class="modal-contacts__email modal-contacts__link modal-contacts__information title"
@@ -349,23 +415,23 @@ get_header();?>
                 <div class="modal-reviews__slider modal-reviews-slider">
                     <?php
                     $postsCount = 1;
-                    $reviews = $review->getReviews();
+                    $reviews    = $review->getReviews();
                     foreach ($reviews as $review):?>
-                        <?php if ($postsCount%2 !== 0) :?>
+                        <?php if ($postsCount % 2 !== 0) : ?>
                             <div class="modal-reviews-slider__item">
                             <div class="modal-reviews__card">
-                                <img class="modal-reviews__image" src="<?= $review['photo'];?>" alt="Photo">
+                                <img class="modal-reviews__image" src="<?= $review['photo']; ?>" alt="Photo">
                                 <div class="modal-reviews__content-wrapper">
-                                    <p class="modal-reviews__content content"><?= $review['review'];?></p>
-                                    <h1 class="modal-reviews__name title"><?= $review['author']?></h1>
+                                    <p class="modal-reviews__content content"><?= $review['review']; ?></p>
+                                    <h1 class="modal-reviews__name title"><?= $review['author'] ?></h1>
                                 </div>
                             </div>
-                        <?php else :?>
+                        <?php else : ?>
                             <div class="modal-reviews__card modal-reviews__card--order">
-                                <img class="modal-reviews__image" src="<?= $review['photo'];?>" alt="Photo">
+                                <img class="modal-reviews__image" src="<?= $review['photo']; ?>" alt="Photo">
                                 <div class="modal-reviews__content-wrapper">
-                                    <p class="modal-reviews__content content"><?= $review['review'];?></p>
-                                    <h1 class="modal-reviews__name title"><?= $review['author']?></h1>
+                                    <p class="modal-reviews__content content"><?= $review['review']; ?></p>
+                                    <h1 class="modal-reviews__name title"><?= $review['author'] ?></h1>
                                 </div>
                             </div>
                             </div>
@@ -378,6 +444,7 @@ get_header();?>
             </div>
         </div>
     </div>
+    </div>
     <div class="information-modal-overlay-wrapper information-modal-overlay-wrapper--closed" id="modal-gallery">
         <div class="information-modal-overlay-wrapper__modal-overlay information-modal-overlay-wrapper-modal-overlay modal-overlay-gallery"
              id="modal-close-gallery">
@@ -386,28 +453,32 @@ get_header();?>
                 <button class="modal-gallery__close-button" id="gallery-close-button">
                 </button>
                 <div class="modal-gallery__slider modal-gallery-slider">
-                    <div class="modal-gallery-slider__item">
-                        <div class="modal-gallery__wrapper">
-                            <?php
-                            $galleryImages = $gallery->getGalleryImages();
-                            foreach($galleryImages as $galleryImage):?>
-                                <div class="modal-gallery__image-wrapper">
-                                    <img class="modal-gallery__image" src="<?= $galleryImage?>" alt="">
-                                </div>
-                                <?php
-                            endforeach;
-                            ?>
+                    <?php
+                    $imageCount = 0;
+                    $galleryImages = $gallery->getGalleryImages();
+                    foreach ($galleryImages as $galleryImage):?>
+                        <?php if (($imageCount+1) % 6 != 0):?>
+                            <div class="modal-gallery-slider__item">
+                            <div class="modal-gallery__wrapper">
+                        <?php endif; ?>
+                        <div class="modal-gallery__image-wrapper">
+                            <img class="modal-gallery__image" src="<?= $galleryImage ?>" alt="">
                         </div>
-                    </div>
+                        <?php if ($imageCount % 6 != 0):?>
+                            </div>
+                            </div>
+                        <?php endif;?>
+                        <?php $imageCount++;
+                    endforeach;
+                    ?>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="wrapper">
-    <div class="wrapper__content wrapper__content--inforamtion-width">
-    <div class="information">
-            <?= do_shortcode('[contact-form-7 id="16" title="Feedback" html_class="modal-overlay-form-wrapper__form form"]');?>
-    </div>
-    </div>
+    <div class="modal-overlay-form-wrapper modal-overlay-form-wrapper--closed">
+        <div class="modal-overlay-form-wrapper__modal-overlay">
+            <?= do_shortcode('[contact-form-7 id="4" title="Feedback" html_class="modal-overlay-form-wrapper__form form"]'); ?>
+        </div>
     </div>
 <?php get_footer(); ?>
