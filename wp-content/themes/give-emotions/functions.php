@@ -44,5 +44,8 @@ function getPostInfo()
     } else {
         $result = ['error' => 'Can\'t find product with id ' . $postID];
     }
-    wp_send_json_success($result);
+
+    header('Access-Control-Allow-Origin: *');
+    echo json_encode($result);
+    wp_die();
 }
