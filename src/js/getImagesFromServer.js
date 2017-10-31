@@ -23,7 +23,7 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
          )
 
 
-          .then(res => {console.log(res)})
+          .then(res => {console.log(res.json())})
        /* .then(res => res.json())
         .then(data => {
 
