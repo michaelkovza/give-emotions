@@ -27,7 +27,7 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
 
             console.log(data,'datadatadata');
 
-            console.log(data[elementId])
+            console.log(data[`productinfo`][elementId])
 
 
            /* let fragment = document.createDocumentFragment();
