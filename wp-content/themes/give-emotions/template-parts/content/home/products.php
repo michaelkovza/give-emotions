@@ -16,8 +16,8 @@ $products = new GiveEmotionsProduct();
             <ul class="gallery__list">
                 <?php
                 $allProducts = $products->getProductsFromArgs();
-                foreach ($allProducts as $product):?>
-                <li class="gallery__item" id="<?php the_ID() ?>">
+                foreach ($allProducts as $id => $product):?>
+                <li class="gallery__item" id="<?= $id ?>">
                     <div class="gallery__image-wrapper">
                         <img class="gallery__image" src="<?= $product['main_image'] ?>" alt="<?= $product['title'] ?>">
                         <img class="gallery__image gallery__image--hover"
