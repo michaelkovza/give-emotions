@@ -22,14 +22,12 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
             {'mode': 'no-cors'}
          )
 
-
-          .then(res => {console.log(res.json())})
-       /* .then(res => res.json())
+        .then(res => res.json())
         .then(data => {
 
             console.log(data,'datadatadata');
 
-            console.log(data[elementId]);
+            /*console.log(data[elementId]);
 
 
             let fragment = document.createDocumentFragment();
@@ -54,8 +52,8 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
 
             initCardSlick(cardSliderSelector);
 
-            getCurrentImage(getCurrentImageOptions);
-        })*/
+            getCurrentImage(getCurrentImageOptions);*/
+        })
 };
 
 
