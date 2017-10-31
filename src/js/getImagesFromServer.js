@@ -24,25 +24,25 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
         .then(res => res.json())
         .then(data => {
 
-            console.log(`${data}.data.productInfo.${elementId}`)
+            console.log(data.productInfo[elementId]);
 
 
-           /* let fragment = document.createDocumentFragment();
+            /* let fragment = document.createDocumentFragment();
 
             data[elementId].forEach((currImage) => {
-                let fragmentItem = document.createElement('img');
-                fragmentItem.setAttribute('src', currImage);
-                fragmentItem.classList.add('card__small-image');
-                fragmentItem.classList.add('card-slider__item');
-                fragment.appendChild(fragmentItem);
+            let fragmentItem = document.createElement('img');
+            fragmentItem.setAttribute('src', currImage);
+            fragmentItem.classList.add('card__small-image');
+            fragmentItem.classList.add('card-slider__item');
+            fragment.appendChild(fragmentItem);
             });
 
 
             fragmentContianerSelector.appendChild(fragment);
 
             const setLargeImageOptions = {
-                'firstImage': data[elementId][0],
-                'largeImageSelector': document.getElementsByClassName('card__large-image')[0]
+            'firstImage': data[elementId][0],
+            'largeImageSelector': document.getElementsByClassName('card__large-image')[0]
             };
 
             setLargeImage(setLargeImageOptions);
