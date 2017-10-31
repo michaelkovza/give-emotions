@@ -23,9 +23,10 @@ const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector
                 postId: elementId
             }
         },
-        {'mode': 'no-cors'},
-    )
-        .then(res => res.json())
+            {'mode': 'no-cors'}
+         )
+          .then(console.log(res))
+       /* .then(res => res.json())
         .then(data => {
 
             console.log(data,'datadatadata');
@@ -56,7 +57,7 @@ const getImagesFromServer = ({url, fragmentContianerSelector, cardSliderSelector
             initCardSlick(cardSliderSelector);
 
             getCurrentImage(getCurrentImageOptions);
-        })
+        })*/
 };
 
 
