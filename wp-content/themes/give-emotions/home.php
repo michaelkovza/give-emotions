@@ -6,15 +6,6 @@
  * Time: 19:50
  */
 
-use GiveEmotionsProduct\GiveEmotionsGallery;
-use GiveEmotionsProduct\GiveEmotionsProduct;
-use GiveEmotionsProduct\GiveEmotionsReview;
-use GiveEmotionsProduct\GiveEmotionsSlider;
-
-$products = new GiveEmotionsProduct();
-$gallery = new GiveEmotionsGallery();
-$slider = new GiveEmotionsSlider();
-$review = new GiveEmotionsReview();
 get_header();?>
     <div class="wrapper">
         <div class="wrapper__content">
@@ -59,68 +50,13 @@ get_header();?>
             </header>
         </div>
     </div>
-    <div class="wrapper wrapper--with-border">
-        <div class="wrapper__content">
-            <nav class="navigate">
-                <ul class="navigate__list">
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Главная">Главная</a>
-                    </li>
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Каталог">Каталог</a>
-                    </li>
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Информация">Информация</a>
-                    </li>
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Доставка и Оплата">Доставка и Оплата</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <div class="wrapper wrapper--with-border js-fixed-navigate">
+        <?php require_once(get_template_directory() . '/template-parts/content/home/menu.php') ?>
     </div>
-    <div class="wrapper">
-        <div class="wrapper__content wrapper__content--vertical-padding">
-            <div class="lamp">
-                <div class="lamp__slider lamp-slider">
-                    <?php
-                    $sliderImages = $slider->getSliderImages();
-                    foreach ($sliderImages as $sliderImage):?>
-                        <div class="lamp__slider-item lamp-slider__item">
-                            <img class="lamp__image lamp-slider__image" src="<?= $sliderImage ?>" alt="">
-                        </div>
-                        <?php
-                    endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="wrapper">
-        <div class="wrapper__content wrapper__content--galery-width">
-            <div class="gallery">
-                <ul class="gallery__list">
-                    <?php
-                    $allProducts = $products->getProductsFromArgs();
-                    foreach ($allProducts as $product):?>
-                        <li class="gallery__item" id="<?php the_ID() ?>">
-                            <div class="gallery__image-wrapper">
-                                <img class="gallery__image" src="<?= $product['main_image'] ?>"
-                                     alt="Forest Spirit Image">
-                                <img class="gallery__image gallery__image--hover"
-                                     src="https://pp.userapi.com/c543101/v543101489/32251/uob2cyjZG5A.jpg">
-                            </div>
-                            <article class="gallery__description">
-                                <h1 class="gallery__title title"><?= $product['title'] ?></h1>
-                                <p class="gallery__price title"><?= $product['price'] ?><span class="gallery__currency">&nbsp;руб</span>
-                                </p>
-                            </article>
-                            <button class="gallery__button title">просмотр</button>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        </div>
-    </div>
+
+    <?php require_once(get_template_directory() . '/template-parts/content/home/slider.php') ?>
+    <?php require_once(get_template_directory() . '/template-parts/content/home/products.php') ?>
+
     <div class="wrapper">
         <div class="wrapper__content">
             <div class="delivery">
@@ -128,8 +64,7 @@ get_header();?>
                 <ul class="delivery__list delivery-list">
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--curriculum"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/curriculum.svg"
+                            <img class="delivery-list__image delivery-list__image--curriculum" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/curriculum.svg"
                                  alt="curriculum image">
                         </div>
                         <p class="delivery-list__content content">Оставляете заявку на&nbsp;нашем сайте. Наш менеджер
@@ -137,19 +72,16 @@ get_header();?>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--curriculum"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/wallet.svg"
+                            <img class="delivery-list__image delivery-list__image--curriculum" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/wallet.svg"
                                  alt="wallet image">
                         </div>
-                        <p class="delivery-list__content content">Оплатить заказ возможно через такие платежные сервисы
-                            как:
+                        <p class="delivery-list__content content">Оплатить заказ возможно через такие платежные сервисы как:
                             &laquo;Сбербанк Онлайн&raquo;, Qiwi, Яндекс деньги, наложенным платежом (при получении
                             товара).</p>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--dropbox"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/dropbox-logo.svg"
+                            <img class="delivery-list__image delivery-list__image--dropbox" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/dropbox-logo.svg"
                                  alt="dropbox image">
                         </div>
                         <p class="delivery-list__content content">Светильник надежно упаковывается в&nbsp;пенопласт и&nbsp;гофрированный
@@ -158,20 +90,16 @@ get_header();?>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
                             <img class="delivery-list__image delivery-list__image--fast-delivery"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/fast-delivery.svg"
-                                 alt="fast-delivery image">
+                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/fast-delivery.svg" alt="fast-delivery image">
                         </div>
-                        <p class="delivery-list__content content">Заказы отправляем службами доставки: СДЭК, ПЭК,
-                            Деловые
+                        <p class="delivery-list__content content">Заказы отправляем службами доставки: СДЭК, ПЭК, Деловые
                             Линии, &laquo;Байкал Сервис&raquo; или &laquo;Почта России&raquo; по&nbsp;пожеланию клиента.
-                            Доставка до&nbsp;пункта самовывоза, обычно, не&nbsp;превышает 300&nbsp;руб. Рассчитать
-                            точную
+                            Доставка до&nbsp;пункта самовывоза, обычно, не&nbsp;превышает 300&nbsp;руб. Рассчитать точную
                             сумму доставки вам помогут наши операторы.</p>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
-                            <img class="delivery-list__image delivery-list__image--earth"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/earth.svg"
+                            <img class="delivery-list__image delivery-list__image--earth" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/earth.svg"
                                  alt="earth image">
                         </div>
                         <p class="delivery-list__content content">Мы&nbsp;работаем&nbsp;По всей территории России, а&nbsp;так&nbsp;же
@@ -188,36 +116,28 @@ get_header();?>
                 <ul class="information__list information-list">
                     <li class="information-list__item information-list__item--lamp" id="lamp-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/stars.svg"
-                                 alt="stars image">
+                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/stars.svg" alt="stars image">
                         </div>
                         <h2 class="information-list__title title">Светильник-ночник</h2>
                         <button class="information-list__button title">Узнать подробности</button>
                     </li>
                     <li class="information-list__item information-list__item--contacts" id="contacts-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/world.svg"
-                                 alt="world image">
+                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/world.svg" alt="world image">
                         </div>
                         <h2 class="information-list__title title">Контакты</h2>
                         <button class="information-list__button title">Узнать подробности</button>
                     </li>
                     <li class="information-list__item information-list__item--comments" id="comments-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/conversation.svg"
-                                 alt="conversation image">
+                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/conversation.svg" alt="conversation image">
                         </div>
                         <h2 class="information-list__title title">Отзывы</h2>
                         <button class="information-list__button title">Узнать подробности</button>
                     </li>
                     <li class="information-list__item information-list__item--gallery" id="gallery-button">
                         <div class="information-list__image-wrapper">
-                            <img class="information-list__image"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/gallery.svg"
-                                 alt="gallery image">
+                            <img class="information-list__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/gallery.svg" alt="gallery image">
                         </div>
                         <h2 class="information-list__title title">Галерея</h2>
                         <button class="information-list__button title">Узнать подробности</button>
@@ -232,25 +152,8 @@ get_header();?>
             </div>
         </div>
     </div>
-    <div class="wrapper wrapper--with-border">
-        <div class="wrapper__content">
-            <nav class="navigate">
-                <ul class="navigate__list">
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Главная">Главная</a>
-                    </li>
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Каталог">Каталог</a>
-                    </li>
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Информация">Информация</a>
-                    </li>
-                    <li class="navigate__item">
-                        <a class="navigate__link content" href="#" title="Доставка и Оплата">Доставка и Оплата</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+    <div class="wrapper wrapper--with-border hide-on-mobile">
+        <?php require_once(get_template_directory() . '/template-parts/content/home/menu.php') ?>
     </div>
     <div class="wrapper">
         <div class="wrapper__content">
@@ -259,9 +162,7 @@ get_header();?>
                 <ul class="footer__list">
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="instagram">
-                            <img class="footer__image"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/inst-wb.svg"
-                                 alt="instagram">
+                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/inst-wb.svg" alt="instagram">
                         </a>
                     </li>
                     <li class="footer__item">
@@ -273,8 +174,7 @@ get_header();?>
                     </li>
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="vk">
-                            <img class="footer__image"
-                                 src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/vk-wb.svg" alt="vk">
+                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/vk-wb.svg" alt="vk">
                         </a>
                     </li>
                 </ul>
@@ -295,9 +195,7 @@ get_header();?>
             <div class="modal__card card">
                 <ul class="card__list">
                     <li class="card__item card__item--width card__item--margin-right">
-                        <img class="card__large-image"
-                             src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/house.png"
-                             alt="house image">
+                        <img class="card__large-image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/house.png" alt="house image">
                         <div class="card__slider card-slider">
                             <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/house.png') alt="house image")-->
                             <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
@@ -340,20 +238,16 @@ get_header();?>
                     <button class="modal-lamp__close-button" id="lamp-close-button">
                     </button>
                     <div class="modal-lamp__content modal-lamp__content--hidden-on-mobile">
-                        <p class="modal-lamp__description modal-lamp__description--crooked-line-to-bottom content">
-                            Гарантия
+                        <p class="modal-lamp__description modal-lamp__description--crooked-line-to-bottom content">Гарантия
                             на&nbsp;электрику 12&nbsp;мес.</p>
-                        <p class="modal-lamp__description content modal-lamp__description--straight-line">
-                            Минималистичный
+                        <p class="modal-lamp__description content modal-lamp__description--straight-line">Минималистичный
                             дизайн</p>
                         <p class="modal-lamp__description content modal-lamp__description--crooked-line-to-top">Мягкое,
                             теплое свечение</p>
                     </div>
                     <div class="modal-lamp__content modal-lamp__content--width">
                         <h1 class="modal-lamp__title title">светильник&nbsp;&mdash; ночник</h1>
-                        <img class="modal-lamp__image"
-                             src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/modal-lamp-image.png"
-                             alt="modal-lamp image">
+                        <img class="modal-lamp__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/modal-lamp-image.png" alt="modal-lamp image">
                         <ul class="modal-lamp__list">
                             <li class="modal-lamp__item content">Гарантия на&nbsp;электрику 12&nbsp;мес.</li>
                             <li class="modal-lamp__item content">Минималистичный дизайн</li>
@@ -390,8 +284,7 @@ get_header();?>
                         </div>
                     </li>
                     <li class="modal-contacts__item modal-contacts__item--margin-left modal-contacts__item--width">
-                        <address class="modal-contacts__address modal-contacts__information title">ул. Космос 24а
-                        </address>
+                        <address class="modal-contacts__address modal-contacts__information title">ул. Космос 24а</address>
                         <a class="modal-contacts__phone modal-contacts__link modal-contacts__information title"
                            href="tel:88006409005">+8 (800) 640-90-05</a>
                         <a class="modal-contacts__email modal-contacts__link modal-contacts__information title"
@@ -405,80 +298,8 @@ get_header();?>
             </div>
         </div>
     </div>
-    <div class="information-modal-overlay-wrapper information-modal-overlay-wrapper--closed" id="modal-comments">
-        <div class="information-modal-overlay-wrapper__modal-overlay information-modal-overlay-wrapper-modal-overlay modal-overlay-reviews"
-             id="modal-close-comments">
-            <div class="information-modal-overlay-wrapper-modal-overlay__modal modal-overlay-reviews__modal modal-reviews">
-                <h1 class="modal-reviews__title title">Отзывы</h1>
-                <button class="modal-reviews__close-button" id="comments-close-button">
-                </button>
-                <div class="modal-reviews__slider modal-reviews-slider">
-                    <?php
-                    $postsCount = 1;
-                    $reviews    = $review->getReviews();
-                    foreach ($reviews as $review):?>
-                        <?php if ($postsCount % 2 !== 0) : ?>
-                            <div class="modal-reviews-slider__item">
-                            <div class="modal-reviews__card">
-                                <img class="modal-reviews__image" src="<?= $review['photo']; ?>" alt="Photo">
-                                <div class="modal-reviews__content-wrapper">
-                                    <p class="modal-reviews__content content"><?= $review['review']; ?></p>
-                                    <h1 class="modal-reviews__name title"><?= $review['author'] ?></h1>
-                                </div>
-                            </div>
-                        <?php else : ?>
-                            <div class="modal-reviews__card modal-reviews__card--order">
-                                <img class="modal-reviews__image" src="<?= $review['photo']; ?>" alt="Photo">
-                                <div class="modal-reviews__content-wrapper">
-                                    <p class="modal-reviews__content content"><?= $review['review']; ?></p>
-                                    <h1 class="modal-reviews__name title"><?= $review['author'] ?></h1>
-                                </div>
-                            </div>
-                            </div>
-                        <?php endif;
-                        $postsCount++;
-                    endforeach;
-                    wp_reset_postdata();
-                    ?>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="information-modal-overlay-wrapper information-modal-overlay-wrapper--closed" id="modal-gallery">
-        <div class="information-modal-overlay-wrapper__modal-overlay information-modal-overlay-wrapper-modal-overlay modal-overlay-gallery"
-             id="modal-close-gallery">
-            <div class="information-modal-overlay-wrapper-modal-overlay__modal information-modal-overlay-wrapper-modal-overlay__modal--slider modal-overlay-gallery__modal modal-gallery">
-                <h1 class="modal-gallery__title title">Галерея</h1>
-                <button class="modal-gallery__close-button" id="gallery-close-button">
-                </button>
-                <div class="modal-gallery__slider modal-gallery-slider">
-                    <?php
-                    $imageCount = 0;
-                    $galleryImages = $gallery->getGalleryImages();
-                    foreach ($galleryImages as $galleryImage):?>
-                        <?php if (($imageCount+1) % 6 != 0):?>
-                            <div class="modal-gallery-slider__item">
-                            <div class="modal-gallery__wrapper">
-                        <?php endif; ?>
-                        <div class="modal-gallery__image-wrapper">
-                            <img class="modal-gallery__image" src="<?= $galleryImage ?>" alt="">
-                        </div>
-                        <?php if ($imageCount % 6 != 0):?>
-                            </div>
-                            </div>
-                        <?php endif;?>
-                        <?php $imageCount++;
-                    endforeach;
-                    ?>
+    <?php require_once(get_template_directory() . '/template-parts/content/home/reviews.php') ?>
+    <?php require_once(get_template_directory() . '/template-parts/content/home/gallery.php') ?>
+    <?php require_once(get_template_directory() . '/template-parts/content/home/form.php') ?>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-overlay-form-wrapper modal-overlay-form-wrapper--closed">
-        <div class="modal-overlay-form-wrapper__modal-overlay">
-            <?= do_shortcode('[contact-form-7 id="4" title="Feedback" html_class="modal-overlay-form-wrapper__form form"]'); ?>
-        </div>
-    </div>
 <?php get_footer(); ?>
