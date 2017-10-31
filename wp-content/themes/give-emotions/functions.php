@@ -34,7 +34,7 @@ function js_variables()
 
 function getPostInfo()
 {
-    $postID = $_POST['postId'];
+    $postID = $_REQUEST['postId'];
     if ($postID) {
         $product = new GiveEmotionsProduct();
 
@@ -44,18 +44,5 @@ function getPostInfo()
     } else {
         $result = ['error' => 'Can\'t find product with id ' . $postID];
     }
-    sendJsonResponse($result);
-}
-
-/**
- * @param $data
- */
-function sendJsonResponse($data)
-{
-    if ($data['error']) {
-        http_response_code(500);
-    }
-    header('Content-Type: application/json');
-    echo json_encode($data);
-    wp_die();
+    wp_send_json_success($result);
 }
