@@ -52,8 +52,8 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
 
             initCardSlick(cardSliderSelector);
 
-            getCurrentImage(getCurrentImageOptions);*!/
-        })*/
+            getCurrentImage(getCurrentImageOptions);*/
+        })
 };
 
 
