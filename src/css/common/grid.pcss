@@ -20,12 +20,17 @@
   }
 
   &__content {
-    max-width: 1410px;
+    max-width: 865px;
     padding: 5px 5px;
     margin: 0 auto;
 
+
    @media (--desktop-small) {
     padding: 0 5px;
+   }
+
+   @media (--desktop-large) {
+     max-width: 1410px;
    }
 
     &--galery-width {
@@ -33,7 +38,15 @@
     }
 
     &--inforamtion-width {
-      max-width: 1060px;
+
+
+      @media (--tablet-large) {
+        max-width: 510px;
+      }
+
+      @media (--desktop-large) {
+        max-width: 1060px;
+      }
     }
 
     &--vertical-padding {
