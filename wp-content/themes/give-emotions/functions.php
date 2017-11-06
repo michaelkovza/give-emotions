@@ -49,3 +49,22 @@ function getPostInfo()
     echo json_encode($result);
     wp_die();
 }
+
+//Добавляем фильтры
+add_filter( 'wpcf7_validate_tel*', 'dco_wpcf7_validate', 10, 2 );
+
+function dco_wpcf7_validate( $result, $tag ) {
+    //Получаем параметры тега
+    $tag = new WPCF7_FormTag( $tag );
+
+    //Получаем значение поля
+    $value = isset( $_POST[ $tag->name ] ) ? trim( wp_unslash( strtr( (string) $_POST[ $tag->name ], "\n", " " ) ) ) : '';
+
+    if (
+        $tag->basetype === 'tel' &&
+        ( ( $value !== '' && ! preg_match( '/(^\+?[78]\s?\(?\d{3}\)?\s?\d{3}\s?\d{2}\s?\d{2}$)/', $value ) ) ||
+          $value === '' ) ) {
+        $result->invalidate( $tag, 'Введенный номер телефона не валиден. Попробуйте снова.');
+    }
+    return $result;
+}

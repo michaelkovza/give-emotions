@@ -7,7 +7,6 @@
  */
 ?>
 
-<script type="text/javascript" src="/wp-content/themes/give-emotions/front/build/index.js"></script>
 </body>
 <?php wp_footer(); ?>
 </html>

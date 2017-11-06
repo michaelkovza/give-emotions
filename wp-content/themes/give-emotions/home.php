@@ -193,28 +193,16 @@ get_header();?>
             <div class="modal__card card">
                 <ul class="card__list">
                     <li class="card__item card__item--width card__item--margin-right">
-                        <img class="card__large-image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/house.png" alt="house image">
-                        <div class="card__slider card-slider">
-                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/house.png') alt="house image")-->
-                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src="https://pp.userapi.com/c638930/v638930863/2f3c3/QzK21uys4v8.jpg" alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src="https://pp.userapi.com/c624222/v624222330/4e2e9/zfd2ikyO_NY.jpg" alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src=require('../../images/gallery/forest-spirit.png') alt="forest-spirit image")-->
-                            <!--img.card__small-image.card-slider__item(src="https://pp.userapi.com/c638930/v638930330/2cecb/_A3gm4Vx86I.jpg" alt="forest-spirit image")-->
-                        </div>
+                        <img class="card__large-image" src="" alt="house image">
+                        <div class="card__slider card-slider"></div>
                     </li>
                     <li class="card__item card__item--relative">
                         <button class="card__close-button modal-overlay__close-button">
                         </button>
                         <article class="card__article">
-                            <h1 class="card__title main-title">светитльник</h1>
-                            <p class="card__subtitle content">такой-то такой</p>
-                            <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
-                                студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
-                            <p class="card__price title">1800<span class="card__currency">&nbsp;руб</span>
+                            <h1 class="card__title main-title"></h1>
+                            <p class="card__content content"></p>
+                            <p class="card__price title"><span class="card__currency">&nbsp;руб</span>
                             </p>
                         </article>
                         <p class="card__offer title">Закажи прямо сейчас!</p>
