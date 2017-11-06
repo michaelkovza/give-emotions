@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import objectFitImages from 'object-fit-images';
 import './css/index.pcss';
 import './js/lamp-slider/lamp-slider-theme.pcss';
 import './js/lamp-slider/lamp-slider.pcss';
@@ -21,6 +22,7 @@ import fixedHeaderOnScroll from './js/fixedMenuOnScroll';
 
 
 window.addEventListener('load', () => {
+    objectFitImages();
     fixedHeaderOnScroll();
 
 
