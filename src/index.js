@@ -91,10 +91,11 @@ window.addEventListener('load', () => {
     initForm(formValidationOptions);
 
     const openFormOptions = {
-        openFormItemSelector: document.getElementsByClassName('modal-contacts__button')[0],
+        openFormItemSelector: document.getElementsByClassName('js-open-form-button'),
         formWrapperSelector: document.getElementsByClassName('modal-overlay-form-wrapper')[0],
         closedClass: 'modal-overlay-form-wrapper--closed',
-        closeFormSelector: document.getElementsByClassName('modal-overlay-form-wrapper__modal-overlay')[0]
+        closeFormSelector: document.getElementsByClassName('modal-overlay-form-wrapper__modal-overlay')[0],
+        closeFormSelectorButton: document.getElementsByClassName('js-form__close-button')[0]
     };
 
     openForm(openFormOptions);

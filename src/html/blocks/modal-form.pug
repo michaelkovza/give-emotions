@@ -2,6 +2,7 @@ div.modal-overlay-form-wrapper.modal-overlay-form-wrapper--closed
     div.modal-overlay-form-wrapper__modal-overlay
         form.modal-overlay-form-wrapper__form.form(name="form" action="form.json" method="POST")
             fieldset.form__feedback
+                a.form__close-button.js-form__close-button
                 div.form__feedback-status-wrapper
                     p.form__feedback-status.title
                 p.form__data-content.title Ваше ФИО
@@ -12,4 +13,4 @@ div.modal-overlay-form-wrapper.modal-overlay-form-wrapper--closed
                 input.form__item.title(name="phone" placeholder="+7 095 675 45 45" type="tel" required)
                 p.form__data-content.title Комментарий:
                 textarea.form__message.title
-                button.form__button.title оставить заявку
+                button.form__button.title(type="submit" name="send") оставить заявку

@@ -17,7 +17,6 @@ const fixedHeaderOnScroll = () => {
         let navigationFixedContainerClass = 'wrapper--fixed';
         let navigateWrapper = document.getElementsByClassName('js-fixed-navigate')[0];
         let navigateWrapperTopCoords = getTopCoordinates(navigateWrapper).top;
-        console.log(navigateWrapperTopCoords);
 
         window.addEventListener('scroll', () => {
 
