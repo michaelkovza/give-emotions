@@ -43,7 +43,7 @@ $review = new GiveEmotionsReview();
                     <?endif;
                 $postsCount++;
                 endforeach;
-                if ($postsCount % 2 !== 0):?>
+                if ($postsCount+1 % 2 !== 0):?>
                     </div>
                 <?endif;?>
             </div>

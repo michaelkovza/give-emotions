@@ -10,16 +10,16 @@
     <nav class="navigate">
         <ul class="navigate__list">
             <li class="navigate__item">
-                <a class="navigate__link content" href="#" title="Главная">Главная</a>
+                <a class="navigate__link content" href="#main" title="Главная">Главная</a>
             </li>
             <li class="navigate__item">
-                <a class="navigate__link content" href="#" title="Каталог">Каталог</a>
+                <a class="navigate__link content" href="#catalog" title="Каталог">Каталог</a>
             </li>
             <li class="navigate__item">
-                <a class="navigate__link content" href="#" title="Информация">Информация</a>
+                <a class="navigate__link content" href="#information" title="Информация">Информация</a>
             </li>
             <li class="navigate__item">
-                <a class="navigate__link content" href="#" title="Доставка и Оплата">Доставка и Оплата</a>
+                <a class="navigate__link content" href="#delivery" title="Доставка и Оплата">Доставка и Оплата</a>
             </li>
         </ul>
     </nav>

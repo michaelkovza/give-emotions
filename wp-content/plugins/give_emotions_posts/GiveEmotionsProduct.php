@@ -50,7 +50,6 @@ class GiveEmotionsProduct
                 ),
                 'menu_position' => 5,
                 'public' => true,
-                'has_archive' => true,
             )
         );
         register_post_type('gallery',
@@ -61,7 +60,6 @@ class GiveEmotionsProduct
                 ),
                 'menu_position' => 5,
                 'public' => true,
-                'has_archive' => true,
             )
         );
         register_post_type('feedback',
@@ -72,7 +70,6 @@ class GiveEmotionsProduct
                 ),
                 'menu_position' => 5,
                 'public' => true,
-                'has_archive' => true,
             )
         );
 

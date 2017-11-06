@@ -36,7 +36,10 @@ $gallery = new GiveEmotionsGallery();
                     <?php endif;?>
                     <?php $imageCount++;
                 endforeach;
-                ?>
+                if ($imageCount % 6 != 0):?>
+                    </div>
+                </div>
+                <?endif?>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ $slider = new GiveEmotionsSlider();
 <div class="wrapper">
     <div class="wrapper__content wrapper__content--vertical-padding">
         <div class="lamp">
-            <div class="lamp__slider lamp-slider">
+            <div class="lamp__slider lamp-slider" id="main">
                 <?php
                 $sliderImages = $slider->getSliderImages();
                 foreach ($sliderImages as $sliderImage):?>

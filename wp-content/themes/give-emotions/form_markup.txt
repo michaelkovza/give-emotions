@@ -1,0 +1,15 @@
+<fieldset class="form__feedback">
+   <a class="form__close-button js-form__close-button"></a>
+   <div class="form__feedback-status-wrapper">
+        <p class="form__feedback-status title"></p>
+   </div>
+   <p class="form__data-content title">Ваше ФИО</p>
+   [text* feedback_name class:form__item class:title placeholder "Иванов Иван Иванович"]
+   <p class="form__data-content title">Адрес эл. почты</p>
+   [email* feedback_email class:form__item class:title placeholder "example@gmail.com"]
+   <p class="form__data-content title">Контактный телефон</p>
+   [tel* feedback_phone class:form__item class:title placeholder "+7 095 675 45 45"]
+   <p class="form__data-content title">Комментарий:</p>
+   [textarea* feedback_text class:form__message class:title]
+   <button class="form__button title">оставить заявку</button>
+</fieldset>

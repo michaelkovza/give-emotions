@@ -12,7 +12,7 @@ $products = new GiveEmotionsProduct();
 ?>
 <div class="wrapper">
     <div class="wrapper__content wrapper__content--galery-width">
-        <div class="gallery">
+        <div class="gallery" id="catalog">
             <ul class="gallery__list">
                 <?php
                 $allProducts = $products->getProductsFromArgs();

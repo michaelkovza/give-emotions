@@ -1,0 +1,4 @@
+От: [feedback_name] <[feedback_email]>
+Номер телефона: [feedback_phone]
+Сообщение:
+[feedback_text]

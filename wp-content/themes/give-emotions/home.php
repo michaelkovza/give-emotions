@@ -59,7 +59,7 @@ get_header();?>
 
     <div class="wrapper">
         <div class="wrapper__content">
-            <div class="delivery">
+            <div class="delivery" id="delivery">
                 <h1 class="delivery__title title">доставка и&nbsp;оплата</h1>
                 <ul class="delivery__list delivery-list">
                     <li class="delivery-list__item">
@@ -111,7 +111,7 @@ get_header();?>
     </div>
     <div class="wrapper">
         <div class="wrapper__content wrapper__content--inforamtion-width">
-            <div class="information">
+            <div class="information" id="information">
                 <h1 class="information__title title">информация</h1>
                 <ul class="information__list information-list">
                     <li class="information-list__item information-list__item--lamp" id="lamp-button">
@@ -145,9 +145,7 @@ get_header();?>
                 </ul>
                 <div class="information__offer">
                     <p class="information__offer-content title">Закажи прямо сейчас!</p>
-                    <a class="information__offer-link title" href="#" title="Купить">
-                        <span class="information__offer-link-content">Купить</span>
-                    </a>
+                    <button class="information__offer-button title js-open-form-button">Купить</button>
                 </div>
             </div>
         </div>
@@ -162,19 +160,19 @@ get_header();?>
                 <ul class="footer__list">
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="instagram">
-                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/inst-wb.svg" alt="instagram">
+                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/instagram.svg" alt="instagram">
                         </a>
                     </li>
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="facebook">
                             <img class="footer__image"
-                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiI+DQogIDxpbWFnZSBpZD0i0KHQu9C+0LlfMyIgZGF0YS1uYW1lPSLQodC70L7QuSAzIiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHhsaW5rOmhyZWY9ImRhdGE6aW1nL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQUNBQUFBQWdDQU1BQUFCRXBJckdBQUFBQkdkQlRVRUFBTEdQQy94aEJRQUFBQ0JqU0ZKTkFBQjZKZ0FBZ0lRQUFQb0FBQUNBNkFBQWRUQUFBT3BnQUFBNm1BQUFGM0NjdWxFOEFBQUFjbEJNVkVVQUFBQlpXVmxaV1ZsWldWbFpXVmxaV1ZsWldWbFlXRmhnWUdCWVdGaFpXVmxiVzF0WldWbGFXbHBhV2xwWldWbFpXVmxaV1ZsaVltSlpXVmxaV1ZsWldWbFpXVmxhV2xwTlRVMVpXVmxaV1ZsWldWbFpXVmxaV1ZsWldWbFpXVmxaV1ZsWldWbG1abVpaV1ZsWldWa0FBQUJ1WjdxeEFBQUFKSFJTVGxNQSt0TEl5ZE5BQndpcDRRNXBNeHFIc0xJTHErZm84NWdFaWFUZ05sZDVtdXhnQTlGU3pIaTVBQUFBQVdKTFIwUUFpQVVkU0FBQUFBbHdTRmx6QUFBTEV3QUFDeE1CQUpxY0dBQUFBSE5KUkVGVU9NdnQwTWNLZ0RBTWdPRm8zYlB1dlgzL1p6VDFKRWdOS09MRi94VElSNkNGbFFpK0FvcktHTk9rUURkTXdDd1pzUGUxSERndVhBTVBDT0NMWlJCeUhrbEFMRUJ5OFV4TGdKUUMyVTJRRjFncFFJVkRmUVlOSEdzcDBGR2dwOEJ3QnVPRXpmdDVISlkzL3VFSEQ4QUd6OHQwVi9MejVOUUFBQUFBU1VWT1JLNUNZSUk9Ii8+DQo8L3N2Zz4NCg=="
+                                 src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ1NS43MyA0NTUuNzMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ1NS43MyA0NTUuNzM7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMzQTU1OUY7IiBkPSJNMCwwdjQ1NS43M2gyNDIuNzA0VjI3OS42OTFoLTU5LjMzdi03MS44NjRoNTkuMzN2LTYwLjM1M2MwLTQzLjg5MywzNS41ODItNzkuNDc1LDc5LjQ3NS03OS40NzUNCgloNjIuMDI1djY0LjYyMmgtNDQuMzgyYy0xMy45NDcsMC0yNS4yNTQsMTEuMzA3LTI1LjI1NCwyNS4yNTR2NDkuOTUzaDY4LjUyMWwtOS40Nyw3MS44NjRoLTU5LjA1MVY0NTUuNzNINDU1LjczVjBIMHoiLz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K"
                                  alt="facebook">
                         </a>
                     </li>
                     <li class="footer__item">
                         <a class="footer__link" href="#" title="vk">
-                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/vk-wb.svg" alt="vk">
+                            <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/vk.svg" alt="vk">
                         </a>
                     </li>
                 </ul>
@@ -216,15 +214,11 @@ get_header();?>
                             <p class="card__subtitle content">такой-то такой</p>
                             <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
                                 студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
-                            <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
-                                студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
-                            <p class="card__content content">В&nbsp;линейке пока только 5&nbsp;разных моделей. Ждем
-                                студийных фотографий, они должны быть готовы на&nbsp;следующей неделе.</p>
                             <p class="card__price title">1800<span class="card__currency">&nbsp;руб</span>
                             </p>
                         </article>
                         <p class="card__offer title">Закажи прямо сейчас!</p>
-                        <button class="card__button title">купить</button>
+                        <button class="card__button title js-open-form-button">купить</button>
                     </li>
                 </ul>
             </div>
@@ -257,9 +251,7 @@ get_header();?>
                             <li class="modal-lamp__item content">Настоящее фабричное качество</li>
                         </ul>
                         <p class="modal-lamp__offer title">Закажи прямо сейчас!</p>
-                        <a class="modal-lamp__link title" href="#" title="Купить">
-                            <span class="modal-lamp__link-content">Купить</span>
-                        </a>
+                        <button class="modal-lamp__button title js-open-form-button">Купить</button>
                     </div>
                     <div class="modal-lamp__content modal-lamp__content--hidden-on-mobile">
                         <p class="modal-lamp__description modal-lamp__description--padding-top modal-lamp__description--crooked-right-line modal-lamp__description--crooked-right-line-position content">
@@ -284,7 +276,8 @@ get_header();?>
                         </div>
                     </li>
                     <li class="modal-contacts__item modal-contacts__item--margin-left modal-contacts__item--width">
-                        <address class="modal-contacts__address modal-contacts__information title">ул. Космос 24а</address>
+                        <address class="modal-contacts__address modal-contacts__information title">426008 УР, г.Ижевск
+                            ул. Ленина, д. 108</address>
                         <a class="modal-contacts__phone modal-contacts__link modal-contacts__information title"
                            href="tel:88006409005">+8 (800) 640-90-05</a>
                         <a class="modal-contacts__email modal-contacts__link modal-contacts__information title"
@@ -293,7 +286,7 @@ get_header();?>
                 </ul>
                 <div class="modal-contacts__offer-wrapper">
                     <p class="modal-contacts__offer title">У&nbsp;вас есть вопросы?</p>
-                    <button class="modal-contacts__button title">заказать обратный звонок</button>
+                    <button class="modal-contacts__button title js-open-form-button">заказать обратный звонок</button>
                 </div>
             </div>
         </div>
