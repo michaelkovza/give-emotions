@@ -14,7 +14,6 @@ import initGallerySlick from './js/gallery-slider/gallery-slider';
 import navigateScroll from './js/navigateScroll';
 import initModalOverlay from './js/modal-overlay';
 import initInformationModalOverlay from './js/information-modal-overlay';
-import initForm from './js/initForm';
 import openForm from './js/openForm';
 import loadMap from './js/loadMap';
 import fixedHeaderOnScroll from './js/fixedMenuOnScroll';
@@ -83,14 +82,6 @@ window.addEventListener('load', () => {
 
     initInformationModalOverlay(initGalleryModalOverlayOptions);
 
-    const formValidationOptions = {
-        userDataSelector: $('.form'),
-        feedbackWrapperSelector: $('.form__feedback-status-wrapper'),
-        feedbackMessageSelector: $('.form__feedback-status'),
-        activeClassToShowMessage: 'form__feedback-status-wrapper--active'
-    };
-
-    initForm(formValidationOptions);
 
     const openFormOptions = {
         openFormItemSelector: document.getElementsByClassName('js-open-form-button'),
