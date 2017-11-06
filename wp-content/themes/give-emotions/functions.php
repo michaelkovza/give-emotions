@@ -68,3 +68,20 @@ function dco_wpcf7_validate( $result, $tag ) {
     }
     return $result;
 }
+// Регистрируем колонку для вывода значения произвольного поля source_link_custom_field
+function order_column_register( $columns ) {
+    $columns['order'] = __( 'Порядок вывода на странице');
+    return $columns;
+}
+add_filter( 'manage_edit-product_columns', 'order_column_register');
+
+// Выводим содержимое произвольного поля в зарегистрированную колонку
+function order_column_display( $column_name, $post_id ) {
+    if ('order' !== $column_name )
+        return;
+    $price = get_post_meta($post_id, 'order', true);
+    if ( !$price )
+        $price = '<em>' . __( 'отсутствует', 'my-plugin' ) . '</em>';
+    echo $price;
+}
+add_action( 'manage_posts_custom_column', 'order_column_display', 10, 2 );

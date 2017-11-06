@@ -48,11 +48,16 @@ class GiveEmotionsProduct
      */
     public function getProductsFromArgs(array $args = [])
     {
-        $args = array_merge($args, ['post_type' => $this->postType]);
+        $args = array_merge($args, [
+            'post_type' => $this->postType,
+            'meta_key' => 'order',
+            'orderby' => 'meta_value',
+            'order' => 'ASC'
+        ]);
         $query = new \WP_Query();
         $queriedPosts = $query->query($args);
         if (empty($queriedPosts)) {
-            return null;
+            return [];
         }
         $products = [];
         /** @var $post \WP_Post */
@@ -66,7 +71,14 @@ class GiveEmotionsProduct
                 $products[$post->ID][$name] = $valueObject['value'];
             }
 
-            $products[$post->ID]['gallery'] = get_post_gallery_images($post->ID);
+            $gallery = get_post_gallery( $post->ID, false );
+            $ids = explode( ',', $gallery['ids'] );
+            $imageLinks = [];
+            foreach( $ids as $id ) {
+                $imageLinks [] = wp_get_attachment_url( $id );
+            }
+
+            $products[$post->ID]['gallery'] = $imageLinks;
         }
         wp_reset_postdata();
 

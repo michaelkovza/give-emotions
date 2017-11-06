@@ -21,7 +21,7 @@ $products = new GiveEmotionsProduct();
                     <div class="gallery__image-wrapper">
                         <img class="gallery__image" src="<?= $product['main_image'] ?>" alt="<?= $product['title'] ?>">
                         <img class="gallery__image gallery__image--hover"
-                             src="https://pp.userapi.com/c543101/v543101489/32251/uob2cyjZG5A.jpg">
+                             src="<?= $product['background_image']?>">
                     </div>
                     <article class="gallery__description">
                         <h1 class="gallery__title title"><?= $product['title'] ?></h1>

@@ -31,7 +31,13 @@ class GiveEmotionsGallery
             /** @var $post \WP_Post */
             $post = array_pop($queriedPosts);
 
-            return get_post_gallery_images($post->ID);
+            $gallery = get_post_gallery( $post->ID, false );
+            $ids = explode( ',', $gallery['ids'] );
+            $imageLinks = [];
+            foreach( $ids as $id ) {
+                $imageLinks [] = wp_get_attachment_url( $id );
+            }
+            return $imageLinks;
         }
 
         return null;
