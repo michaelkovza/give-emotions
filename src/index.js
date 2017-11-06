@@ -8,11 +8,10 @@ import './js/reviews-slider/reviews-slider-theme.pcss';
 import './js/gallery-slider/gallery-slider-theme.pcss';
 
 import initLampSlick from './js/lamp-slider/lamp-slider';
-
 import initReviewsSlick from './js/reviews-slider/reviews-slider';
 import initGallerySlick from './js/gallery-slider/gallery-slider';
 
-
+import navigateScroll from './js/navigateScroll';
 import initModalOverlay from './js/modal-overlay';
 import initInformationModalOverlay from './js/information-modal-overlay';
 import initForm from './js/initForm';
@@ -24,6 +23,7 @@ import fixedHeaderOnScroll from './js/fixedMenuOnScroll';
 window.addEventListener('load', () => {
     objectFitImages();
     fixedHeaderOnScroll();
+    navigateScroll();
 
 
     const LampSliderSelector = $('.lamp-slider');
