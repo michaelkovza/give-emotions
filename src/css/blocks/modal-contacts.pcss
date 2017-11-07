@@ -40,7 +40,11 @@
     &__map-wrapper {
         width: 100%;
         height: 260px;
-        background: red;
+
+        @media (--tablet-large) {
+            width: 320px;
+            height: 320px;
+        }
 
         @media (--desktop-small) {
             max-width: initial;
@@ -56,14 +60,19 @@
         flex-flow: column nowrap;
         justify-content: space-around;
 
-        @media (--desktop-small) {
+        @media (--tablet-large) {
             flex-flow: row nowrap;
+            justify-content: space-between;
         }
     }
 
     &__item {
 
         &--width {
+
+            @media (--tablet-large) {
+                width: 55%;
+            }
 
             @media (--desktop-small) {
                 width: 320px;
