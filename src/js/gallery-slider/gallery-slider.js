@@ -1,7 +1,8 @@
 import 'slick-carousel';
 
 const defaultOptions = {
-    dots: false,
+    dots: true,
+    arrows: false,
     centerMode: false,
     slideToShow: 1,
     slidesToScroll: 1,

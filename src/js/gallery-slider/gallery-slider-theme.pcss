@@ -1,51 +1,88 @@
 @import '../../css/common/variables.pcss';
+@import '../../css/common/media.pcss';
 .modal-gallery-slider {
   /* Arrows */
-  & .slick-prev {
+
+  & .slick-dots {
+    position: absolute;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+
+    @media (--tablet-large) {
+      bottom: -20px;
+    }
+  }
+
+  & .slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    padding: 0;
+    cursor: pointer;
+
+    @media (--tablet-large) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  & .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    color: transparent;
+    border-radius: 50%;
+    background: var(--border-color);
+
+    @media (--tablet-large) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  & .slick-dots li button:hover,
+  & .slick-dots li button:focus {
+    outline: none;
+  }
+
+  .slick-dots li button:hover:before,
+  .slick-dots li button:focus:before {
+    opacity: 0.75;
+    background: var(--button-active-color);
+  }
+
+  & .slick-dots li button:before {
     position: absolute;
     top: 50%;
+    left: 6px;
     display: block;
-    width: 90px;
-    height: 90px;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
+    width: 8px;
+    height: 8px;
+    content: '';
+    background: var(--unactive-dots);
+    border-radius: 50%;
     transform: translate(0, -50%);
-    cursor: pointer;
-    background: url('../../images/modal-gallery/modal-gallery-arrow.png') center no-repeat;
-    left: -130px;
-    z-index: 5;
-    outline: none;
-    color: transparent;
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in;
 
-    &:hover {
-      opacity: 1;
+    @media (--tablet-large) {
+      width: 18px;
+      height: 18px;
     }
+
   }
 
-  & .slick-next {
-    position: absolute;
-    top: 50%;
-    display: block;
-    width: 90px;
-    height: 90px;
-    outline: none;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%) rotate(180deg);
-    cursor: pointer;
-    background: url('../../images/modal-gallery/modal-gallery-arrow.png') center no-repeat;
-    right: -130px;
-    z-index: 5;
-    color: transparent;
-    opacity: 0.5;
-    transition: opacity 0.3s ease-in;
-
-    &:hover {
-      opacity: 1;
-    }
+  & .slick-dots li.slick-active button:before {
+    opacity: 1;
+    background: var(--button-active-color);
   }
+
 }
