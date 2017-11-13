@@ -14,7 +14,6 @@
     left: -99999px;
   }
 
-
   &__modal-overlay {
     background: var(--background-modal-overlay);
     text-align: center;
@@ -25,16 +24,15 @@
     top: 0;
     box-sizing: border-box;
 
+    @media (--tablet-large) {
 
-    @media (--desktop-small) {
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
 
-    &:before {
-      content: '';
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-
-    }
+      }
     }
   }
 
@@ -47,9 +45,13 @@
     background: var(--color-content);
     z-index: 100;
     width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 
-    @media (--tablet-small) {
-        width: 430px;
+    @media (--tablet-large) {
+      width: 430px;
+      height: initial;
+      overflow-y: auto;
     }
   }
 

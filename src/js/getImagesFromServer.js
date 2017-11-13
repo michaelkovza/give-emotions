@@ -25,53 +25,67 @@ const getCurrentImageOptions = {
 };
 
 const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, elementId) => {
-    console.log(elementId);
+
     fetch(`http://9993626000.myjino.ru/wp-admin/admin-ajax.php?postId=${elementId}&action=get_post_info`, {
             method: 'POST'
         }
     )
 
-        .then(res => res.json())
-        .then(data => {
-
-            console.log(data.productInfo[elementId]);
-
-
-             let fragment = document.createDocumentFragment();
-
-            data.productInfo[elementId].gallery.forEach((currImage) => {
-            let fragmentItem = document.createElement('img');
-            fragmentItem.setAttribute('src', currImage);
-            fragmentItem.classList.add('card__small-image');
-            fragmentItem.classList.add('card-slider__item');
-            fragment.appendChild(fragmentItem);
-            });
+        .then(
+            (response) => {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
 
 
-            fragmentContianerSelector.appendChild(fragment);
+                response.json().then(data => {
 
-            const setLargeImageOptions = {
-            'firstImage': data.productInfo[elementId].main_image,
-            'largeImageSelector': document.getElementsByClassName('card__large-image')[0]
-            };
+                    console.log(data.productInfo[elementId]);
 
-            setLargeImage(setLargeImageOptions);
 
-            const setTitleAndDescriptionOptions = {
-                'title': data.productInfo[elementId].title,
-                'description': data.productInfo[elementId].description,
-                'price': data.productInfo[elementId].price,
-                'titleSelector': document.getElementsByClassName('card__title')[0],
-                'descriptionSelector': document.getElementsByClassName('card__content')[0],
-                'priceSelector': document.getElementsByClassName('card__price')[0]
-            };
+                    let fragment = document.createDocumentFragment();
 
-            setTitleAndDescription(setTitleAndDescriptionOptions);
+                    data.productInfo[elementId].gallery.forEach((currImage) => {
+                        let fragmentItem = document.createElement('img');
+                        fragmentItem.setAttribute('src', currImage);
+                        fragmentItem.classList.add('card__small-image');
+                        fragmentItem.classList.add('card-slider__item');
+                        fragment.appendChild(fragmentItem);
+                    });
 
-            initCardSlick(cardSliderSelector);
 
-            getCurrentImage(getCurrentImageOptions);
-        })
+                    fragmentContianerSelector.appendChild(fragment);
+
+                    const setLargeImageOptions = {
+                        'firstImage': data.productInfo[elementId].main_image,
+                        'largeImageSelector': document.getElementsByClassName('card__large-image')[0]
+                    };
+
+                    setLargeImage(setLargeImageOptions);
+
+                    const setTitleAndDescriptionOptions = {
+                        'title': data.productInfo[elementId].title,
+                        'description': data.productInfo[elementId].description,
+                        'price': data.productInfo[elementId].price,
+                        'titleSelector': document.getElementsByClassName('card__title')[0],
+                        'descriptionSelector': document.getElementsByClassName('card__content')[0],
+                        'priceSelector': document.getElementsByClassName('card__price')[0]
+                    };
+
+                    setTitleAndDescription(setTitleAndDescriptionOptions);
+
+                    initCardSlick(cardSliderSelector);
+
+                    getCurrentImage(getCurrentImageOptions);
+
+                })
+
+            }
+
+        )
+
 };
 
 
