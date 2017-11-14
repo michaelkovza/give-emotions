@@ -29,7 +29,7 @@ get_header();?>
                                      src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/viber.svg"
                                      alt="viber logo">
                             </a>
-                            <a class="header-contacts__link" href="#" title="Telegram">
+                            <a class="header-contacts__link" href="tg://resolve?domain=prettyboyheaven" title="Telegram">
                                 <img class="header-contacts__image"
                                      src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/telegram.svg"
                                      alt="telegram logo">
@@ -159,19 +159,19 @@ get_header();?>
                 <h1 class="footer__title content">Мы&nbsp;в&nbsp;социальных сетях:</h1>
                 <ul class="footer__list">
                     <li class="footer__item">
-                        <a class="footer__link" href="#" title="instagram">
+                        <a class="footer__link" href="https://www.instagram.com/inwbox/" target="_blank" title="instagram">
                             <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/instagram.svg" alt="instagram">
                         </a>
                     </li>
                     <li class="footer__item">
-                        <a class="footer__link" href="#" title="facebook">
+                        <a class="footer__link" href="#" target="_blank" title="facebook">
                             <img class="footer__image"
                                  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ1NS43MyA0NTUuNzMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ1NS43MyA0NTUuNzM7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMzQTU1OUY7IiBkPSJNMCwwdjQ1NS43M2gyNDIuNzA0VjI3OS42OTFoLTU5LjMzdi03MS44NjRoNTkuMzN2LTYwLjM1M2MwLTQzLjg5MywzNS41ODItNzkuNDc1LDc5LjQ3NS03OS40NzUNCgloNjIuMDI1djY0LjYyMmgtNDQuMzgyYy0xMy45NDcsMC0yNS4yNTQsMTEuMzA3LTI1LjI1NCwyNS4yNTR2NDkuOTUzaDY4LjUyMWwtOS40Nyw3MS44NjRoLTU5LjA1MVY0NTUuNzNINDU1LjczVjBIMHoiLz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K"
                                  alt="facebook">
                         </a>
                     </li>
                     <li class="footer__item">
-                        <a class="footer__link" href="#" title="vk">
+                        <a class="footer__link" href="https://vk.com/inwhitebox" target="_blank" title="vk">
                             <img class="footer__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/vk.svg" alt="vk">
                         </a>
                     </li>
@@ -282,5 +282,10 @@ get_header();?>
     <?php require_once(get_template_directory() . '/template-parts/content/home/reviews.php') ?>
     <?php require_once(get_template_directory() . '/template-parts/content/home/gallery.php') ?>
     <?php require_once(get_template_directory() . '/template-parts/content/home/form.php') ?>
-
+    <div class="information-modal-overlay-wrapper information-modal-overlay-wrapper--closed" id="modal-error">
+        <div class="information-modal-overlay-wrapper__modal-overlay information-modal-overlay-wrapper-modal-overlay modal-overlay-error"
+             id="modal-close-error">
+            <h1 class="modal-overlay-error__stats title">Произошла ошибка сервера, пожалуйста перезагрузите страницу :(</h1>
+        </div>
+    </div>
 <?php get_footer(); ?>

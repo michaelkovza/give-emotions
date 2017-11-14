@@ -26,7 +26,7 @@ class GiveEmotionsProduct
      */
     public function getProductInfoById($id)
     {
-        $args   = [
+        $args = [
             'p' => $id
         ];
         $result = $this->getProductsFromArgs($args);
@@ -38,7 +38,7 @@ class GiveEmotionsProduct
             return array_pop($result);
         }
 
-        return null;
+        return [];
     }
 
     /**
@@ -75,7 +75,9 @@ class GiveEmotionsProduct
             $ids = explode( ',', $gallery['ids'] );
             $imageLinks = [];
             foreach( $ids as $id ) {
-                $imageLinks [] = wp_get_attachment_url( $id );
+                if (($imageLink = wp_get_attachment_url( $id )) !== false) {
+                    $imageLinks[] = $imageLink;
+                }
             }
 
             $products[$post->ID]['gallery'] = $imageLinks;
