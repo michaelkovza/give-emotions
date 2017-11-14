@@ -2,6 +2,10 @@ import fetch from "isomorphic-fetch";
 import initCardSlick from '../js/card-slider/card-slider';
 import getCurrentImage from '../js/getCurrImage';
 
+const errorMessageContainer = document.getElementById('modal-error');
+const errorMessageContainerCloseClass = 'information-modal-overlay-wrapper--closed';
+
+
 
 const setLargeImage = ({firstImage, largeImageSelector}) => {
 
@@ -34,15 +38,14 @@ const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, e
         .then(
             (response) => {
                 if (response.status !== 200) {
-                    console.log('Looks like there was a problem. Status Code: ' +
-                        response.status);
+                    errorMessageContainer.classList.remove(errorMessageContainerCloseClass);
                     return;
                 }
 
 
                 response.json().then(data => {
 
-                    console.log(data.productInfo[elementId]);
+                    /*console.log(data.productInfo[elementId]);*/
 
 
                     let fragment = document.createDocumentFragment();
