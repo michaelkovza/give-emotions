@@ -17,6 +17,7 @@ import initInformationModalOverlay from './js/information-modal-overlay';
 import openForm from './js/openForm';
 import loadMap from './js/loadMap';
 import fixedHeaderOnScroll from './js/fixedMenuOnScroll';
+import initPhotoModalOverlay from './js/modal-overlay-photo';
 
 
 window.addEventListener('load', () => {
@@ -97,5 +98,12 @@ window.addEventListener('load', () => {
     const YmapSelector = document.getElementById('Ymap');
     loadMap(YmapSelector);
 
+    const initPhotoModalOverlayOptions = {
+        photoModalOverlayOpenImage: document.getElementsByClassName('card__large-image'),
+        photoModalOverlay: document.getElementById('modal-photo'),
+        photoModalOverlayImage: document.getElementsByClassName('modal-overlay-photo__photo')[0],
+        photoModalOverlayCloseButton: document.getElementsByClassName('modal-overlay-photo__close-button')[0],
+        closeClass: 'modal-overlay-photo--closed'
+    };
+    initPhotoModalOverlay(initPhotoModalOverlayOptions);
 });
-

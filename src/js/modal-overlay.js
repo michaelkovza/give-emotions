@@ -18,7 +18,7 @@ const clearSliderImages = (sliderSelector) => {
     sliderSelector.innerHTML = '';
 };
 
-const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeButtonSelector, previewCardItemsSelector}) => {
+const initModalOverlay = ({ modalOverlaySelector, modalOverlayClosedClass, closeButtonSelector, previewCardItemsSelector }) => {
     const previewCardItemsSelectorArr = Array.prototype.slice.call(previewCardItemsSelector);
 
 
@@ -28,7 +28,6 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
                 modalOverlaySelector.classList.remove(modalOverlayClosedClass);
                 getImagesFromServer(getImagesFromServerOptions, getElementId(element));
                 disableScroll(true);
-
             });
         });
     };
@@ -39,7 +38,6 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
             getImagesFromServerOptions.cardSliderSelector.slick('unslick');
             clearSliderImages(getImagesFromServerOptions.fragmentContianerSelector);
             disableScroll(false);
-
         });
     };
 
@@ -47,7 +45,7 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
         modalOverlaySelector.addEventListener('click', function (e) {
             let target = e.target;
             while (target === this) {
-                if (target.className === "modal-overlay") {
+                if (target.className === 'modal-overlay') {
                     modalOverlaySelector.classList.add(modalOverlayClosedClass);
                     getImagesFromServerOptions.cardSliderSelector.slick('unslick');
                     clearSliderImages(getImagesFromServerOptions.fragmentContianerSelector);
@@ -56,8 +54,7 @@ const initModalOverlay = ({modalOverlaySelector, modalOverlayClosedClass, closeB
                 }
                 target = target.parentNode;
             }
-
-        })
+        });
     };
 
     showCard();

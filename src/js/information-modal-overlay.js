@@ -1,13 +1,13 @@
 import disableScroll from './disableScroll';
 
-const initInformationModalOverlay = ({informationModalButton, informationModalOverlay, informationModalOverlayClose, informationModalCloseButton, closeClass}) => {
+const initInformationModalOverlay = ({ informationModalButton, informationModalOverlay, informationModalOverlayClose, informationModalCloseButton, closeClass }) => {
     informationModalButton.addEventListener('click', () => {
         informationModalOverlay.classList.remove(closeClass)
         disableScroll(true);
     });
 
     informationModalCloseButton.addEventListener('click', () => {
-        informationModalOverlay.classList.add(closeClass)
+        informationModalOverlay.classList.add(closeClass);
         disableScroll(false);
     });
 
