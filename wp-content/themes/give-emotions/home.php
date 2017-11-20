@@ -22,23 +22,13 @@ get_header();?>
                 </div>
                 <div class="header__contacts header-contacts">
                     <ul class="header-contacts__list content">
-                        <li class="header-contacts__item">+8 (999) 362-6000</li>
+                        <li class="header-contacts__item">
+                            <a class="header-contacts__phone" href="tel:89993626000">+8 (999) 362-6000</a>
+                        </li>
                         <li class="header-contacts__item header-contacts__links-wrapper">
-                            <a class="header-contacts__link" href="#" title="Viber">
-                                <img class="header-contacts__image"
-                                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/viber.svg"
-                                     alt="viber logo">
-                            </a>
-                            <a class="header-contacts__link" href="tg://resolve?domain=prettyboyheaven" title="Telegram">
-                                <img class="header-contacts__image"
-                                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/telegram.svg"
-                                     alt="telegram logo">
-                            </a>
-                            <a class="header-contacts__link" href="#" title="Whatsapp">
-                                <img class="header-contacts__image"
-                                     src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/whatsapp.svg"
-                                     alt="whatsapp logo">
-                            </a>
+                            <img class="header-contacts__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>/images/viber.svg" alt="viber logo">
+                            <img class="header-contacts__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>/images/telegram.svg" alt="telegram logo">
+                            <img class="header-contacts__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>/images/whatsapp.svg" alt="whatsapp logo">
                         </li>
                         <li class="header-contacts__item header-contacts__item--border-bottom">24&nbsp;часа</li>
                         <li class="header-contacts__item">
@@ -67,8 +57,7 @@ get_header();?>
                             <img class="delivery-list__image delivery-list__image--curriculum" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/curriculum.svg"
                                  alt="curriculum image">
                         </div>
-                        <p class="delivery-list__content content">Оставляете заявку на&nbsp;нашем сайте. Наш менеджер
-                            свяжется с&nbsp;вами для уточнения деталей в&nbsp;течении 30&nbsp;минут.</p>
+                        <p class="delivery-list__content content">Для оформления заказа необходимо оставить заявку на нашем сайте, наши менеджеры свяжутся с вами в течении 30 минут. </p>
                     </li>
                     <li class="delivery-list__item">
                         <div class="delivery-list__image-wrapper">
@@ -193,7 +182,7 @@ get_header();?>
             <div class="modal__card card">
                 <ul class="card__list">
                     <li class="card__item card__item--width card__item--margin-right">
-                        <img class="card__large-image" src="" alt="house image">
+                        <img class="card__large-image js-modal-photo" src="" alt="house image">
                         <div class="card__slider card-slider"></div>
                     </li>
                     <li class="card__item card__item--relative">
@@ -211,6 +200,11 @@ get_header();?>
                 </ul>
             </div>
         </div>
+    </div>
+    <div class="modal-overlay-photo modal-overlay-photo--closed" id="modal-photo">
+        <button class="modal-overlay-photo__close-button" id="modal-close-photo">
+        </button>
+        <img class="modal-overlay-photo__photo" src="">
     </div>
     <div class="information-modal-overlay-wrapper information-modal-overlay-wrapper--closed" id="modal-lamp">
         <div class="information-modal-overlay-wrapper__modal-overlay information-modal-overlay-wrapper-modal-overlay modal-overlay-lamp"
@@ -231,17 +225,18 @@ get_header();?>
                         <h1 class="modal-lamp__title title">светильник&nbsp;&mdash; ночник</h1>
                         <img class="modal-lamp__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/modal-lamp-image.png" alt="modal-lamp image">
                         <ul class="modal-lamp__list">
-                            <li class="modal-lamp__item content">Гарантия на&nbsp;электрику 12&nbsp;мес.</li>
-                            <li class="modal-lamp__item content">Минималистичный дизайн</li>
-                            <li class="modal-lamp__item content">Мягкое, теплое свечение</li>
-                            <li class="modal-lamp__item content">Светодиодная подсветка, минимальное потребление энергии
-                            </li>
-                            <li class="modal-lamp__item content">Настоящее фабричное качество</li>
+                            <li class="modal-lamp__item content modal-lamp__item--zero-line">Объемное, многослойное изображение</li>
+                            <li class="modal-lamp__item content modal-lamp__item--first-line">Гарантия на&nbsp;электрику 12&nbsp;мес.</li>
+                            <li class="modal-lamp__item content modal-lamp__item--second-line">Минималистичный дизайн</li>
+                            <li class="modal-lamp__item content modal-lamp__item--third-line">Мягкое, теплое свечение</li>
+                            <li class="modal-lamp__item content modal-lamp__item--fourth-line">Светодиодная подсветка, минимальное потребление энергии</li>
+                            <li class="modal-lamp__item content modal-lamp__item--fifth-line">Настоящее фабричное качество</li>
                         </ul>
                         <p class="modal-lamp__offer title">Закажи прямо сейчас!</p>
                         <button class="modal-lamp__button title js-open-form-button">Купить</button>
                     </div>
                     <div class="modal-lamp__content modal-lamp__content--hidden-on-mobile">
+                        <p class="modal-lamp__description modal-lamp__description--crooked-revert-right-line content">Объемное, многослойное изображение</p>
                         <p class="modal-lamp__description modal-lamp__description--padding-top modal-lamp__description--crooked-right-line modal-lamp__description--crooked-right-line-position content">
                             Светодиодная подсветка, минимальное потребление энергии</p>
                         <p class="modal-lamp__description modal-lamp__description--crooked-right-line content">Настоящее
@@ -264,11 +259,11 @@ get_header();?>
                         </div>
                     </li>
                     <li class="modal-contacts__item modal-contacts__item--margin-left modal-contacts__item--width">
-                        <address class="modal-contacts__address modal-contacts__information title">426008 УР, г.Ижевск
+                        <address class="modal-contacts__address modal-contacts__information content">426008 УР, г.Ижевск
                             ул. Ленина, д. 108</address>
-                        <a class="modal-contacts__phone modal-contacts__link modal-contacts__information title"
+                        <a class="modal-contacts__phone modal-contacts__link modal-contacts__information content"
                            href="tel:88006409005">+8 (800) 640-90-05</a>
-                        <a class="modal-contacts__email modal-contacts__link modal-contacts__information title"
+                        <a class="modal-contacts__email modal-contacts__link modal-contacts__information content"
                            href="mailto:InWhiteBox@gmail.com">InWhiteBox@gmail.com</a>
                     </li>
                 </ul>

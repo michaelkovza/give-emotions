@@ -28,7 +28,7 @@ $gallery = new GiveEmotionsGallery();
                     <div class="modal-gallery__wrapper">
                         <?php endif; ?>
                         <div class="modal-gallery__image-wrapper">
-                            <img class="modal-gallery__image" src="<?= $galleryImage ?>" alt="modal gallery image">
+                            <img class="modal-gallery__image js-modal-photo" src="<?= $galleryImage ?>" alt="modal gallery image">
                         </div>
                     <?php if ($imageCount % 6 != 0):?>
                         </div>

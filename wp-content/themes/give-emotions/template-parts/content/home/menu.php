@@ -16,10 +16,10 @@
                 <a class="navigate__link content" href="#catalog" title="Каталог">Каталог</a>
             </li>
             <li class="navigate__item">
-                <a class="navigate__link content" href="#information" title="Информация">Информация</a>
+                <a class="navigate__link content" href="#delivery" title="Доставка и Оплата">Доставка и Оплата</a>
             </li>
             <li class="navigate__item">
-                <a class="navigate__link content" href="#delivery" title="Доставка и Оплата">Доставка и Оплата</a>
+                <a class="navigate__link content" href="#information" title="Информация">Информация</a>
             </li>
         </ul>
     </nav>
