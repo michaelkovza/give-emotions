@@ -227,7 +227,7 @@
 
     @media (--tablet-large) {
       margin-left: 385px;
-      padding-top: 25px;
+      padding-top: 45px;
     }
 
     @media (--desktop-large) {
@@ -237,5 +237,47 @@
 
   &__item {
     padding: 10px 0;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      background-color: var(--color-content);
+      width: 100%;
+      height: 1px;
+
+    }
+
+    &--first-line {
+      &:after {
+        left: -240px;
+      }
+    }
+
+    &--second-line {
+      &:after {
+        left: -260px;
+      }
+    }
+
+    &--third-line {
+      &:after {
+        left: -275px;
+      }
+    }
+
+    &--fourth-line {
+      &:after {
+        width: 500px;
+        left: -80px;
+      }
+    }
+
+    &--fifth-line {
+     &:after {
+       left: -220px;
+     }
+    }
   }
 }

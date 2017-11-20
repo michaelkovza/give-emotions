@@ -99,7 +99,7 @@ window.addEventListener('load', () => {
     loadMap(YmapSelector);
 
     const initPhotoModalOverlayOptions = {
-        photoModalOverlayOpenImage: document.getElementsByClassName('card__large-image'),
+        photoModalOverlayOpenImage: document.getElementsByClassName('js-modal-photo'),
         photoModalOverlay: document.getElementById('modal-photo'),
         photoModalOverlayImage: document.getElementsByClassName('modal-overlay-photo__photo')[0],
         photoModalOverlayCloseButton: document.getElementsByClassName('modal-overlay-photo__close-button')[0],
