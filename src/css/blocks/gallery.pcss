@@ -27,18 +27,16 @@
         }
 
         .gallery__image {
-            opacity: 0;
+          opacity: 0;
         }
 
         .gallery__image--hover {
-            opacity: 1;
+          opacity: 1;
         }
       }
-    }
-
-    @media (--desktop-large) {
-      width: 400px;
-    }
+    } @media (--desktop-large) {
+    width: 400px;
+  }
   }
 
   &__image-wrapper {
@@ -62,34 +60,26 @@
     opacity: 1;
     transition: opacity 0.5s ease-in;
 
-
     &--hover {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
 
     }
 
-  }
-
-  &__description {
-    padding: 15px 0;
   }
 
   &__title {
     text-transform: uppercase;
     font-size: 25px;
-    padding-bottom: 5px;
 
     @media (--tablet-large) {
       font-size: 20px;
-    }
-
-    @media (--desktop-large) {
-      font-size: 25px;
-    }
+    } @media (--desktop-large) {
+    font-size: 25px;
+  }
   }
 
   &__price {
@@ -98,11 +88,9 @@
 
     @media (--tablet-large) {
       font-size: 20px;
-    }
-
-    @media (--desktop-large) {
-      font-size: 30px;
-    }
+    } @media (--desktop-large) {
+    font-size: 30px;
+  }
   }
 
   &__currency {
@@ -110,11 +98,9 @@
 
     @media (--tablet-large) {
       font-size: 15px;
-    }
-
-    @media (--desktop-large) {
-      font-size: 21px;
-    }
+    } @media (--desktop-large) {
+    font-size: 21px;
+  }
   }
 
   &__button {
@@ -133,15 +119,12 @@
       font-size: 15px;
       padding: 0 15px;
       height: 32px;
-    }
-
-
-    @media (--desktop-large) {
-      width: 383px;
-      font-size: 20px;
-      height: 52px;
-      padding: 0 37px;
-    }
+    } @media (--desktop-large) {
+    width: 383px;
+    font-size: 20px;
+    height: 52px;
+    padding: 0 37px;
+  }
 
     &:after {
       content: '';
@@ -158,12 +141,10 @@
       @media (--tablet-large) {
         width: 22px;
         height: 22px;
-      }
-
-      @media (--desktop-large) {
-        width: 32px;
-        height: 22px;
-      }
+      } @media (--desktop-large) {
+      width: 32px;
+      height: 22px;
+    }
     }
   }
 }
