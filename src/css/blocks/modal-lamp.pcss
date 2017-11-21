@@ -120,14 +120,25 @@
         background: url('../../images/modal-windows/crooked-right-line.png') no-repeat top;
         width: 529px;
         height: 100px;
-        top: 224px;
+        top: -32px;
         left: -243px;
       }
     }
 
-    &--padding-top {
-      padding-top: 256px;
-      margin-bottom: 114px;
+
+    &--crooked-revert-right-line {
+      padding-top: 90px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: url('../../images/modal-windows/crooked-line.png') no-repeat top;
+        width: 438px;
+        height: 52px;
+        transform: rotateY(180deg);
+        left: -153px;
+      }
     }
   }
 
@@ -239,20 +250,31 @@
     padding: 10px 0;
     position: relative;
 
-    &:after {
-      content: '';
-      position: absolute;
-      display: block;
-      background-color: var(--color-content);
-      width: 100%;
-      height: 1px;
+    @media (--tablet-large) {
 
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background-color: var(--color-content);
+        width: 100%;
+        height: 1px;
+
+      }
+    }
+
+    &--zero-line {
+      &:after {
+        left: -160px;
+      }
     }
 
     &--first-line {
-      &:after {
-        left: -240px;
-      }
+
+        &:after {
+          left: -240px;
+        }
+
     }
 
     &--second-line {
