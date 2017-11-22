@@ -72,7 +72,16 @@ class GiveEmotionsProduct
                 'public' => true,
             )
         );
-
+        register_post_type('additionalInfo',
+            array(
+                'labels' => array(
+                    'name' => __('Доп. информация'),
+                    'singular_name' => __('Доп. информация')
+                ),
+                'menu_position' => 5,
+                'public' => true,
+            )
+        );
 	}
 }
 

@@ -6,6 +6,10 @@
  * Time: 19:50
  */
 
+use GiveEmotionsProduct\GiveEmotionsAdditionalInfo;
+
+$additionalInfoRepository = new GiveEmotionsAdditionalInfo();
+$additionalInfo = $additionalInfoRepository->getInfo();
 get_header();?>
     <div class="wrapper">
         <div class="wrapper__content">
@@ -223,7 +227,7 @@ get_header();?>
                     </div>
                     <div class="modal-lamp__content modal-lamp__content--width">
                         <h1 class="modal-lamp__title title">светильник&nbsp;&mdash; ночник</h1>
-                        <img class="modal-lamp__image" src="<?= get_stylesheet_directory_uri() . '/front/build/' ?>images/modal-lamp-image.png" alt="modal-lamp image">
+                        <img class="modal-lamp__image" src="<?= $additionalInfo['picture'] ?>" alt="modal-lamp image">
                         <ul class="modal-lamp__list">
                             <li class="modal-lamp__item content modal-lamp__item--zero-line">Объемное, многослойное изображение</li>
                             <li class="modal-lamp__item content modal-lamp__item--first-line">Гарантия на&nbsp;электрику 12&nbsp;мес.</li>
@@ -254,10 +258,9 @@ get_header();?>
                 <button class="modal-contacts__close-button" id="contacts-close-button">
                 </button>
                 <ul class="modal-contacts__list">
-                    <li class="modal-contacts__item">
-                        <div class="modal-contacts__map-wrapper" id="Ymap">
-                        </div>
-                    </li>
+                    <div class="modal-contacts__map-wrapper" id="Ymap" data-lat="<?=$additionalInfo['map']['lat']?>"
+                         data-lng="<?=$additionalInfo['map']['lng']?>" data-address="<?=$additionalInfo['map']['address']?>">
+                    </div>
                     <li class="modal-contacts__item modal-contacts__item--margin-left modal-contacts__item--width">
                         <address class="modal-contacts__address modal-contacts__information content">426008 УР, г.Ижевск
                             ул. Ленина, д. 108</address>
