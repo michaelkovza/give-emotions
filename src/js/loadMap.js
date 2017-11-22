@@ -1,6 +1,10 @@
-const loadMap =  (mapSelector) => {
+const loadMap = (mapSelector) => {
+
+    let mapLat = mapSelector.getAttribute('data-lat');
+    let mapLng = mapSelector.getAttribute('data-lng');
+    let mapAddress = mapSelector.getAttribute('data-address');
     let map = new ymaps.Map(mapSelector, {
-        center:[56.848089067885624,53.260798499999936],
+        center: [mapLat, mapLng],
         zoom: 16,
     });
 
@@ -19,7 +23,7 @@ const loadMap =  (mapSelector) => {
             '<address>',
             '<strong>Офис в Ижевске</strong>',
             '<br/>',
-            'Адрес: 426008 УР, г.Ижевск, ул. Ленина, д. 108',
+            mapAddress,
             '<br/>',
             '</address>'
         ].join('')

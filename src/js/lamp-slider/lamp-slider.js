@@ -6,7 +6,9 @@ const defaultOptions = {
     slideToShow: 1,
     slidesToScroll: 1,
     infinite: true,
-    draggable: false
+    draggable: false,
+    autoplay: true,
+    autoplaySpeed: 5000
 };
 
 const initLampSlick = (selector, options = defaultOptions) => {
