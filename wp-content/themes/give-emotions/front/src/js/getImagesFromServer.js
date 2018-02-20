@@ -30,7 +30,7 @@ const getCurrentImageOptions = {
 
 const getImagesFromServer = ({ fragmentContianerSelector, cardSliderSelector}, elementId) => {
 
-    fetch(`http://9993626000.myjino.ru/wp-admin/admin-ajax.php?postId=${elementId}&action=get_post_info`, {
+    fetch(`/wp-admin/admin-ajax.php?postId=${elementId}&action=get_post_info`, {
             method: 'POST'
         }
     )
